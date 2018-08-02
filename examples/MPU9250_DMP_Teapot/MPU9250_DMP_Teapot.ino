@@ -27,25 +27,24 @@ MPU9250_DMP imu;
 
 float q[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 float pitch, yaw, roll;
+float a12, a22, a31, a32, a33;            // rotation matrix coefficients for Euler angles and gravity components
+float lin_ax, lin_ay, lin_az;             // linear acceleration (acceleration with gravity component subtracted)
 
 // packet structure for InvenSense teapot demo (MPU9250 DMP quaternion is 32bit)
 uint8_t teapotPacket[22] = { '$', 0x02, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0x00, 0x00, '\r', '\n' };
 #define OUTPUT_TEAPOT
-
+  
 void setup() 
 {
   Serial.begin(115200);
 
   // Call imu.begin() to verify communication and initialize
-  if (imu.begin() != INV_SUCCESS)
+  while (imu.begin() != INV_SUCCESS)
   {
-    while (1)
-    {
-      Serial.println("Unable to communicate with MPU-9250");
-      Serial.println("Check connections, and try again.");
-      Serial.println();
-      delay(5000);
-    }
+    Serial.println("Unable to communicate with MPU-9250");
+    Serial.println("Check connections, and try again.");
+    Serial.println();
+    delay(1000);
   }
   
   imu.dmpBegin(DMP_FEATURE_6X_LP_QUAT | // Enable 6-axis quat
@@ -102,27 +101,45 @@ void printIMUData(void)
     q[1] = imu.calcQuat(imu.qx);
     q[2] = imu.calcQuat(imu.qy);
     q[3] = imu.calcQuat(imu.qz);
-    yaw   = atan2(2.0f * (q[1] * q[2] + q[0] * q[3]), q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3]);   
-    pitch = -asin(2.0f * (q[1] * q[3] - q[0] * q[2]));
-    roll  = atan2(2.0f * (q[0] * q[1] + q[2] * q[3]), q[0] * q[0] - q[1] * q[1] - q[2] * q[2] + q[3] * q[3]);
+    a12 =   2.0f * (q[1] * q[2] + q[0] * q[3]);
+    a22 =   q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3];
+    a31 =   2.0f * (q[0] * q[1] + q[2] * q[3]);
+    a32 =   2.0f * (q[1] * q[3] - q[0] * q[2]);
+    a33 =   q[0] * q[0] - q[1] * q[1] - q[2] * q[2] + q[3] * q[3];
+    pitch = -asinf(a32);
+    roll  = atan2f(a31, a33);
+    yaw   = atan2f(a12, a22);
     pitch *= 180.0f / PI;
     yaw   *= 180.0f / PI; 
-    yaw   -= 13.8; // Declination at Danville, California is 13 degrees 48 minutes and 47 seconds on 2014-04-04
+//    yaw   += 13.8; // Declination at Danville, California is 13 degrees 48 minutes and 47 seconds on 2014-04-04
+    yaw   -= 4.38f; // Declination at Hsinchu, Taiwan is 4.38 degrees W changing by 0.08 degree W per year on 2018-08-02
     roll  *= 180.0f / PI;
-     
-    Serial.print("Yaw, Pitch, Roll: ");
-    Serial.print(yaw, 3);
-    Serial.print(", ");
-    Serial.print(pitch, 3);
-    Serial.print(", ");
-    Serial.println(roll, 3);
+    if(yaw < 0) yaw   += 360.0f; // Ensure yaw stays between 0 and 360
+    roll  *= 180.0f / PI;
     
-//  Serial.print(imu.qw);
-//  Serial.print(imu.qx);
-//  Serial.print(imu.qy);
-//  Serial.println(imu.qz);
-//  Serial.print(imu.time);
-//  Serial.println("ms");
+    Serial.print("Yaw, Pitch, Roll: ");
+    Serial.print(yaw, 2);
+    Serial.print(", ");
+    Serial.print(pitch, 2);
+    Serial.print(", ");
+    Serial.println(roll, 2);
+/*    
+    lin_ax = imu.ax + a31;
+    lin_ay = imu.ay + a32;
+    lin_az = imu.az - a33; 
+    Serial.print("Grav_x, Grav_y, Grav_z: ");
+    Serial.print(-a31*1000, 2);
+    Serial.print(", ");
+    Serial.print(-a32*1000, 2);
+    Serial.print(", ");
+    Serial.print(a33*1000, 2);  Serial.println(" mg");
+    Serial.print("Lin_ax, Lin_ay, Lin_az: ");
+    Serial.print(lin_ax*1000, 2);
+    Serial.print(", ");
+    Serial.print(lin_ay*1000, 2);
+    Serial.print(", ");
+    Serial.print(lin_az*1000, 2);  Serial.println(" mg");
+*/
 #endif
 }
 
