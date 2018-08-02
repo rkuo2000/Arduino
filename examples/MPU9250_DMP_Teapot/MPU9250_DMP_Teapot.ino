@@ -25,13 +25,13 @@ Supported Platforms:
 
 MPU9250_DMP imu;
 
-// packet structure for InvenSense teapot demo (MPU9250 DMP quaternion is 32bit)
-uint8_t teapotPacket[22] = { '$', 0x02, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0x00, 0x00, '\r', '\n' };
-// #define OUTPUT_TEAPOT
-
 float q[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 float pitch, yaw, roll;
-  
+
+// packet structure for InvenSense teapot demo (MPU9250 DMP quaternion is 32bit)
+uint8_t teapotPacket[22] = { '$', 0x02, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0x00, 0x00, '\r', '\n' };
+#define OUTPUT_TEAPOT
+
 void setup() 
 {
   Serial.begin(115200);
