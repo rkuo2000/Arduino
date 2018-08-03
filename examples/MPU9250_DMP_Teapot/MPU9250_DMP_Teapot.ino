@@ -111,10 +111,6 @@ void printIMUData(void)
     yaw   = atan2f(a12, a22);
     pitch *= 180.0f / PI;
     yaw   *= 180.0f / PI; 
-//    yaw   += 13.8; // Declination at Danville, California is 13 degrees 48 minutes and 47 seconds on 2014-04-04
-    yaw   -= 4.38f; // Declination at Hsinchu, Taiwan is 4.38 degrees W changing by 0.08 degree W per year on 2018-08-02
-    roll  *= 180.0f / PI;
-    if(yaw < 0) yaw   += 360.0f; // Ensure yaw stays between 0 and 360
     roll  *= 180.0f / PI;
     
     Serial.print("Yaw, Pitch, Roll: ");
