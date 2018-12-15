@@ -2,8 +2,8 @@
 #include <Servo.h>
 Servo servo;
 
-const char* ssid = "Kuo";
-const char* password = "0972211921";
+const char* ssid = "your_ssid";
+const char* password = "your_password";
 
 WiFiServer server(80);
 
