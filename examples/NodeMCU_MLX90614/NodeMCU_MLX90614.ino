@@ -16,32 +16,78 @@
   BSD license, all text above must be included in any redistribution
  ****************************************************/
 
+// NodeMCU use 3 pairs of I2C pins for three MLX90614 temp sensors
 #include <Wire.h>
 #include <Adafruit_MLX90614.h>
 
+#define AVERAGE_No 50
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
+float temp[3] = {0, 0, 0};
+float object[3];
+
 void setup() {
+  int i;
   Serial.begin(115200);
   Serial.println("Adafruit MLX90614 test");
   mlx.begin();
+  
+  // read & accumulate multiple object temperatures
+  for (i=0; i<AVERAGE_No; i++) {
+    Wire.begin(D2, D1);
+    temp[0] = temp[0] + mlx.readObjectTempC();
+    Wire.begin(D4, D3)
+    temp[1] = temp[1] + mlx.readObjectTempC();
+    Wire.begin(D4, D3)
+    temp[2] = temp[2] + mlx.readObjectTempC();
+  }
+  // calculate average object temperature
+  temp[0]=temp[0]/AVERAGE_No; 
+  temp[1]=temp[1]/AVERAGE_No;
+  temp[2]=temp[2]/AVERAGE_No;
 }
 
 void loop() {
 // first MLX90614 sensor
-  Wire.begin(D2, D1);  
-  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
-  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.print("*C");
+  Wire.begin(D2, D1);
+  object[0]=mlx.readObjectTempC();  
+  Serial.print("1st T="); Serial.print(object[0]); Serial.print("*C ");
+  
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.print("*C");
 //  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
 //  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
 //  Serial.println();
 
 // second MLX90614 sensor
   Wire.begin(D4, D3);
-  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
-  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
+  object[1]=mlx.readObjectTempC();
+  Serial.print("2nd T="); Serial.print(object[1]); Serial.print("*C "); 
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
 //  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
 //  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
 //  Serial.println();
+  
+// third MLX90614 sensor
+  Wire.begin(D6, D5);
+  object[2]=mlx.readObjectTempC();  
+  Serial.print("3rd T="); Serial.print(object[2]); Serial.print("*C ");
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
+//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
+//  Serial.println();
+  Serial.println();
+  
+  Serial.print("Detect:");
+  if ((object[0]-temp[0])>1) Serial.print(" Sensor1");
+  else                       Serial.print(" Nothing");
+  if ((object[1]-temp[1])>1) Serial.print(" Sensor2");
+  else                       Serial.print(" Nothing");  
+  if ((object[2]-temp[2])>1) Serial.print(" Sensor3");
+  else                       Serial.print(" Nothing");
+  Serial.println();
+  
   delay(500);  
 }
