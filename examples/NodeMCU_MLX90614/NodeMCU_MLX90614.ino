@@ -52,32 +52,17 @@ void loop() {
   Wire.begin(D2, D1);
   object[0]=mlx.readObjectTempC();  
   Serial.print("1st T="); Serial.print(object[0]); Serial.print("*C ");
-  
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
-//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.print("*C");
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
-//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
-//  Serial.println();
 
 // second MLX90614 sensor
   Wire.begin(D4, D3);
   object[1]=mlx.readObjectTempC();
   Serial.print("2nd T="); Serial.print(object[1]); Serial.print("*C "); 
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
-//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
-//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
-//  Serial.println();
   
 // third MLX90614 sensor
   Wire.begin(D6, D5);
   object[2]=mlx.readObjectTempC();  
   Serial.print("3rd T="); Serial.print(object[2]); Serial.print("*C ");
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
-//  Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
-//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
-//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
-//  Serial.println();
+
   Serial.println();
   
   Serial.print("Detect:");
