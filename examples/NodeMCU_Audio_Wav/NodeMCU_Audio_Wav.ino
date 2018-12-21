@@ -7,12 +7,12 @@
 // RX (I2Sout)   to 2N3904-Base
 // Gnd           to 2N3904-Emitter
 
+// Notes:
+// I2Sout is sharing UART-RX pin, so do not connect to Speaker circuit till code is uploaded
+// wav->stop will close "file", so need to reopen file to replay the wav file.
+
 #include <Arduino.h>
-#ifdef ESP32
-    #include <WiFi.h>
-#else
-    #include <ESP8266WiFi.h>
-#endif
+#include <ESP8266WiFi.h>
 
 #include "AudioFileSourcePROGMEM.h"
 #include "AudioGeneratorWAV.h"
@@ -42,6 +42,12 @@ void loop()
     if (!wav->loop()) wav->stop();
   } else {
     Serial.printf("WAV done\n");
-    delay(1000);
+    delay(3000); // delay 3000ms = 3s 
+
+    // wav->stop will close the file, so need to reopen the file to replay wav file      
+    file = new AudioFileSourcePROGMEM( cat_meow_wav, sizeof(cat_meow_wav) );
+    out = new AudioOutputI2SNoDAC();
+    wav = new AudioGeneratorWAV();
+    wav->begin(file, out);      
   }
 }
