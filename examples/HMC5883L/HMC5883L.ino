@@ -5,7 +5,7 @@
   Web: http://www.jarzebski.pl
   (c) 2014 by Korneliusz Jarzebski
 */
-
+// GY-271 = HMC5883L module
 #include <Wire.h>
 #include "HMC5883L.h"
 
