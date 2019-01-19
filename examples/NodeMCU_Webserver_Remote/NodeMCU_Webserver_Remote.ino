@@ -10,8 +10,8 @@
 #include <ESP8266WebServer.h>
  
 // Set your network SSID and Password
-const char* ssid = "Kuo";
-const char* password = "0972211921";
+const char* ssid = "your_ssid";
+const char* password = "your_password";
  
 ESP8266WebServer server(80);   //instantiate server at port 80 (http port)
 
