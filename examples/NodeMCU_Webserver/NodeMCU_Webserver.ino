@@ -9,7 +9,7 @@ const char* password = "wifi_password";
 ESP8266WebServer server(80);   //instantiate server at port 80 (http port)
  
 String page = "";
-int LEDPin = 13;
+int LEDPin = D0;
 void setup(void){
   //the HTML of the web page
   page = "<h1>Simple NodeMCU Web Server</h1><p><a href=\"LEDOn\"><button>ON</button></a>&nbsp;<a href=\"LEDOff\"><button>OFF</button></a></p>";
