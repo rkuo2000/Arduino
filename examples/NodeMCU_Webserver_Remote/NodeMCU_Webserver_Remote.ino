@@ -10,8 +10,8 @@
 #include <ESP8266WebServer.h>
  
 // Set your network SSID and Password
-const char* ssid = "your_ssid";
-const char* password = "your_password";
+const char* ssid = "Kuo";
+const char* password = "0972211921";
  
 ESP8266WebServer server(80);   //instantiate server at port 80 (http port)
 
@@ -19,7 +19,7 @@ const String HTTP_HEAD   = "<!DOCTYPE html><html lang=\"en\"><head><meta name=\"
 const String HTTP_STYLE  = "<style>.c{text-align: center;} div,input{padding:5px;font-size:1em;}  input{width:90%;}  body{text-align: center;font-family:verdana;} button{border:0;border-radius:0.6rem;background-color:#3b5998;color:#dfe3ee;line-height:2.4rem;font-size:1.2rem;width:100%;} .q{float: right;width: 64px;text-align: right;} .buttonboxon {background-color: #dfe3ee; color:#3b5998} .buttonsmod {background-color: #8b9dc3; color:#DB4437} .buttonokup {background-color: #8b9dc3; color:#dfe3ee} .buttonokdn {background-color: #8b9dc3; color:#dfe3ee} .buttonoklt {background-color: #8b9dc3; color:#dfe3ee} .buttonokrt {background-color: #8b9dc3; color:#dfe3ee} .buttonok {background-color: #8b9dc3; color:#dfe3ee}  .buttonexit {background-color: #8b9dc3; color:#3b5998} .buttonreturn {background-color: #8b9dc3; color:#3b5998} } </style>";
 const String HTTP_HEAD_END= "</head>";
 const String BODY_TABLE = "<body><div style=\"text-align:center; display:inline-block;min-width:240px;\">";
-const String TABLE_ROW0 = "<table><tr><td><form action=\"/cmdboxon\" method=\"get\"><button style=\"width: 248px; height: 50px; font-size: 25px\" class=\"buttonboxon\">Kbro TV Box</button></form></td></tr></table><table>";
+const String TABLE_ROW0 = "<table><tr><td><form action=\"/cmdboxon\" method=\"get\"><button style=\"width: 248px; height: 30px; font-size: 25px\" class=\"buttonboxon\">Kbro Box</button></form></td></tr></table><table>";
 const String TABLE_ROW1 = "<tr><td><form action=\"/cmd1\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button1\">1</button></form></td><td><form action=\"/cmd2\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button2\">2</button></form></td><td><form action=\"/cmd3\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button3\">3</button></form></td></tr>";
 const String TABLE_ROW2 = "<tr><td><form action=\"/cmd4\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button4\">4</button></form></td><td><form action=\"/cmd5\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button5\">5</button></form></td><td><form action=\"/cmd6\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button6\">6</button></form></td></tr>";
 const String TABLE_ROW3 = "<tr><td><form action=\"/cmd7\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button7\">7</button></form></td><td><form action=\"/cmd8\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button8\">8</button></form></td><td><form action=\"/cmd9\" method=\"get\"><button style=\"width: 80px; height: 60px; font-size: 60px\" class=\"button9\">9</button></form></td></tr>";
@@ -36,13 +36,8 @@ const uint16_t IRLed = D2;  // ESP8266 GPIO pin to use. Recommended: 4 (D2).
 IRsend irsend(IRLed);  
 
 // Code data captured by IRrecvDumpV2.ino
-uint16_t TVON_rawData[71] = {9102, 4456,  626, 524,  604, 524,  618, 1634,  604, 524,  602, 524,  604, 522,  604, 522,  602, 526,  604, 1648,  604, 1650,  604, 524,  604, 1648,  604, 1650,  604, 1648,  604, 1648,  604, 1650,  604, 524,  604, 522,  604, 524,  604, 1648,  604, 524,  604, 524,  604, 524,  604, 524,  636, 1618,  604, 1648,  604, 1648,  604, 526,  602, 1650,  604, 1648,  604, 1650,  604, 1650,  604, 40650,  9068, 2252,  604};  // NEC 20DF10EF
-uint32_t TVON_address = 0x4;
-uint32_t TVON_command = 0x8;
-uint64_t TVON_data = 0x20DF10EF;
-
-uint16_t BOX_ON_a[35] = {226, 912,  204, 2264,  204, 770,  204, 2806,  204, 1314,  202, 1314,  204, 1450,  204, 1856,  204, 14236,  224, 906,  202, 772,  204, 770,  204, 770,  204, 772,  204, 2806,  204, 772,  204, 770,  204};  // UNKNOWN CF7964EB
-uint16_t BOX_ON_b[35] = {226, 912,  204, 2262,  204, 770,  204, 2806,  204, 1316,  204, 1314,  204, 1450,  202, 1858,  204, 14234,  250, 880,  204, 1856,  214, 1846,  206, 768,  204, 770,  204, 2804,  204, 772,  230, 744,  204};  // UNKNOWN F09C641D
+uint16_t BOXON_a[35] = {226, 912,  204, 2264,  204, 770,  204, 2806,  204, 1314,  202, 1314,  204, 1450,  204, 1856,  204, 14236,  224, 906,  202, 772,  204, 770,  204, 770,  204, 772,  204, 2806,  204, 772,  204, 770,  204};  // UNKNOWN CF7964EB
+uint16_t BOXON_b[35] = {226, 912,  204, 2262,  204, 770,  204, 2806,  204, 1316,  204, 1314,  204, 1450,  202, 1858,  204, 14234,  250, 880,  204, 1856,  214, 1846,  206, 768,  204, 770,  204, 2804,  204, 772,  230, 744,  204};  // UNKNOWN F09C641D
 
 uint16_t NO_0_a[35] = {240, 880,  234, 2232,  236, 740,  234, 2774,  236, 1284,  234, 1282,  234, 1418,  236, 1824,  234, 14204,  256, 876,  236, 2774,  234, 742,  232, 742,  234, 742,  234, 740,  234, 740,  234, 740,  234};  // UNKNOWN 41CB412B
 uint16_t NO_0_b[35] = {238, 882,  234, 2230,  238, 738,  234, 2774,  234, 1286,  234, 1282,  234, 1420,  234, 1826,  236, 14222,  234, 878,  234, 1688,  234, 1826,  234, 742,  234, 742,  234, 740,  234, 740,  234, 740,  234};  // UNKNOWN 98B576B7
@@ -119,8 +114,8 @@ void handleRoot() {
 
 void cmdboxon() {
   server.send(200, "text/html", HOMEPAGE);
-  irsend.sendRaw(BOX_ON_a, 35, 38);  // Send a raw data capture at 38kHz.
-  irsend.sendRaw(BOX_ON_b, 35, 38);  // Send a raw data capture at 38kHz.
+  irsend.sendRaw(BOXON_a, 35, 38);  // Send a raw data capture at 38kHz.
+  irsend.sendRaw(BOXON_b, 35, 38);  // Send a raw data capture at 38kHz.
 }
 
 void cmd0() {
@@ -281,7 +276,7 @@ void setup() {
   //Serial.println(WiFi.localIP());
 
   server.on("/", handleRoot);
-  server.on("/cmdboxon", cmdboxon);
+  server.on("/cmdboxon", cmdboxon); 
   server.on("/cmd0", cmd0);  
   server.on("/cmd1", cmd1);
   server.on("/cmd2", cmd2);
