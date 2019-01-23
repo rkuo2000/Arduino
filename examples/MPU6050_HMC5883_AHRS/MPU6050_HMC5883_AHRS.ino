@@ -361,9 +361,8 @@ void loop()
    MadgwickQuaternionUpdate(ax, ay, az, gx*PI/180.0f, gy*PI/180.0f, gz*PI/180.0f,  my,  -mx,  -mz);
 // MahonyQuaternionUpdate(ax, ay, az, gx*PI/180.0f, gy*PI/180.0f, gz*PI/180.0f, my, -mx, -mz);
 
-    // Serial print and/or display at 0.5 s rate independent of data rates
     delt_t = millis() - count;
-    if (delt_t > 500) { // update LCD once per half-second independent of read rate
+    if (delt_t > 100) { // read rate
     digitalWrite(blinkPin, blinkOn);
     
     #ifdef OUTPUT_READABLE_RAWDATA 
