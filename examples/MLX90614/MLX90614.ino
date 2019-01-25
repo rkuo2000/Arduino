@@ -1,4 +1,4 @@
-// use Arafruit_MLX90614 driver code
+// MLX90614 is the Infrared Temperature Sensor
 // NodeMCU use 3 pairs of I2C pins for three MLX90614 temp sensors
 
 #include <Wire.h>
