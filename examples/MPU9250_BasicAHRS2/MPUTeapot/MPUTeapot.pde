@@ -1,4 +1,4 @@
-// I2C device class (I2Cdev) demonstration Processing sketch for MPU6050 DMP output
+`  // I2C device class (I2Cdev) demonstration Processing sketch for MPU6050 DMP output
 // 6/20/2012 by Jeff Rowberg <jeff@rowberg.net>
 // Updates should (hopefully) always be available at https://github.com/jrowberg/i2cdevlib
 //
@@ -43,7 +43,7 @@ import toxi.processing.*;
 ToxiclibsSupport gfx;
 
 Serial port;                         // The serial port
-char[] teapotPacket = new char[14];  // InvenSense Teapot packet
+char[] teapotPacket = new char[22];  // InvenSense Teapot packet for 22 bytes due to MPU9250 quaternion is 32-bit
 int serialCount = 0;                 // current packet byte position
 int aligned = 0;
 int interval = 0;
@@ -72,7 +72,7 @@ void setup() {
     
     // get a specific serial port (use EITHER this OR the first-available code above)
     //String portName = "COM4";
-    String portName = Serial.list()[0];
+    String portName = Serial.list()[1];
     println(portName);
     
     // open the serial port
@@ -152,31 +152,31 @@ void serialEvent(Serial port) {
         print((char)ch);
         if (ch == '$') {serialCount = 0;} // this will help with alignment
         if (aligned < 4) {
-            // make sure we are properly aligned on a 14-byte packet
+            // make sure we are properly aligned on a 22-byte packet
             if (serialCount == 0) {
                 if (ch == '$') aligned++; else aligned = 0;
             } else if (serialCount == 1) {
                 if (ch == 2) aligned++; else aligned = 0;
-            } else if (serialCount == 12) {
+            } else if (serialCount == 20) {
                 if (ch == '\r') aligned++; else aligned = 0;
-            } else if (serialCount == 13) {
+            } else if (serialCount == 21) {
                 if (ch == '\n') aligned++; else aligned = 0;
             }
             //println(ch + " " + aligned + " " + serialCount);
             serialCount++;
-            if (serialCount == 14) serialCount = 0;
+            if (serialCount == 22) serialCount = 0;
         } else {
             if (serialCount > 0 || ch == '$') {
                 teapotPacket[serialCount++] = (char)ch;
-                if (serialCount == 14) {
+                if (serialCount == 22) {
                     serialCount = 0; // restart packet byte position
                     
                     // get quaternion from data packet
-                    q[0] = ((teapotPacket[2] << 8) | teapotPacket[3]) / 16384.0f;
-                    q[1] = ((teapotPacket[4] << 8) | teapotPacket[5]) / 16384.0f;
-                    q[2] = ((teapotPacket[6] << 8) | teapotPacket[7]) / 16384.0f;
-                    q[3] = ((teapotPacket[8] << 8) | teapotPacket[9]) / 16384.0f;
-                    //println(q[0], q[1], q[2], q[3]);
+                    q[0] = q32ToFloat((teapotPacket[ 2]<<24) | (teapotPacket[ 3]<<16) | (teapotPacket[ 4]<<8)| teapotPacket[ 5]);
+                    q[1] = q32ToFloat((teapotPacket[ 6]<<24) | (teapotPacket[ 7]<<16) | (teapotPacket[ 8]<<8)| teapotPacket[ 9]);
+                    q[2] = q32ToFloat((teapotPacket[10]<<24) | (teapotPacket[11]<<16) | (teapotPacket[12]<<8)| teapotPacket[13]);
+                    q[3] = q32ToFloat((teapotPacket[14]<<24) | (teapotPacket[15]<<16) | (teapotPacket[16]<<8)| teapotPacket[17]);
+                    println(q[0], q[1], q[2], q[3]);
                     for (int i = 0; i < 4; i++) if (q[i] >= 2) q[i] = -4 + q[i];
                     
                     // set our toxilibs quaternion to new data
@@ -209,6 +209,17 @@ void serialEvent(Serial port) {
             }
         }
     }
+}
+
+float q32ToFloat(long number)
+{
+	long mask = 0;
+	int q = 30;
+	for (int i=0; i<q; i++)
+	{
+		mask |= (1<<i);
+	}
+	return (number >> q) + ((number & mask) / (float) (2<<(q-1)));
 }
 
 void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
