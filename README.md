@@ -12,8 +12,8 @@
 **MPU6050_HMC5883_AHRS** : *MPU6050 + HMC5883 (GY-88 module) with Madgwick filter, support output MPUTeapot packet*</br>
 **MPU9250_BasicAHRS2** : *MPU9250 with Madgwick filter, support output MPUTeapot packet output*</br>
 </br>
-**MPU6050_DMP_Teapot** : *MPU6050 DMP, support output Teapot packet*</br>
-**MPU9250_DMP_Teapot** : *MPU9250 DMP, support output Teapot packet*</br>
+**MPU6050_DMP_Teapot** : *MPU6050 DMP with Teapot packet output*</br>
+**MPU9250_DMP_Teapot** : *MPU9250 DMP with Teapot packet output*</br>
 
 ## libraries (used by examples)
 **ESP8266Audio.zip** : *ESP8266 Audio library*</br>
