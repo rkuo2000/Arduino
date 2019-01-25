@@ -1,4 +1,4 @@
-`  // I2C device class (I2Cdev) demonstration Processing sketch for MPU6050 DMP output
+// I2C device class (I2Cdev) demonstration Processing sketch for MPU6050 DMP output
 // 6/20/2012 by Jeff Rowberg <jeff@rowberg.net>
 // Updates should (hopefully) always be available at https://github.com/jrowberg/i2cdevlib
 //
