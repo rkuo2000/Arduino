@@ -72,7 +72,7 @@ void setup() {
     
     // get a specific serial port (use EITHER this OR the first-available code above)
     //String portName = "COM4";
-    String portName = Serial.list()[1];
+    String portName = Serial.list()[0]; // may need to change it if your com port is at [1]
     println(portName);
     
     // open the serial port
