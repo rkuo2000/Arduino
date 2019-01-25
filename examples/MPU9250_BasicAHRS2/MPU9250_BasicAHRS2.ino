@@ -292,8 +292,8 @@ float lin_ax, lin_ay, lin_az;             // linear acceleration (acceleration w
 float q[4] = {1.0f, 0.0f, 0.0f, 0.0f};    // vector to hold quaternion
 float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for Mahony method
 
-// packet structure for InvenSense teapot demo
-uint8_t teapotPacket[14] = { '$', 0x02, 0,0, 0,0, 0,0, 0,0, 0x00, 0x00, '\r', '\n' };
+// packet structure for InvenSense teapot demo 
+uint8_t teapotPacket[22] = { '$', 0x02, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0x00, 0x00, '\r', '\n' };
 #define OUTPUT_TEAPOT
 
 void setup()
@@ -453,16 +453,24 @@ void loop()
 
 #ifdef OUTPUT_TEAPOT // for Teapot Packet
     // display quaternion values in InvenSense Teapot demo format:         
-    teapotPacket[2] = int(q[0] * 16384) >>8;
-    teapotPacket[3] = int(q[0] * 16384) & 0x00ff;
-    teapotPacket[4] = int(q[1] * 16384) >> 8;
-    teapotPacket[5] = int(q[1] * 16384) & 0x00ff;
-    teapotPacket[6] = int(q[2] * 16384) >> 8;
-    teapotPacket[7] = int(q[2] * 16384) & 0x00ff;
-    teapotPacket[8] = int(q[3] * 16384) >> 8;
-    teapotPacket[9] = int(q[3] * 16384) & 0x00ff;
-    Serial.write(teapotPacket, 14);  	
-    teapotPacket[11]++; // packetCount, loops at 0xFF on purpose                     
+    teapotPacket[2] = long(q[0]*16384*65536) >>24 & 0x000000ff;
+    teapotPacket[3] = long(q[0]*16384*65536) >>16 & 0x000000ff;
+    teapotPacket[4] = long(q[0]*16384*65536) >>8  & 0x000000ff;
+    teapotPacket[5] = long(q[0]*16384*65536)      & 0x000000ff;
+    teapotPacket[6] = long(q[1]*16384*65536) >>24 & 0x000000ff;
+    teapotPacket[7] = long(q[1]*16384*65536) >>16 & 0x000000ff;
+    teapotPacket[8] = long(q[1]*16384*65536) >>8  & 0x000000ff;
+    teapotPacket[9] = long(q[1]*16384*65536)      & 0x000000ff;
+    teapotPacket[10]= long(q[2]*16384*65536) >>24 & 0x000000ff;
+    teapotPacket[11]= long(q[2]*16384*65536) >>16 & 0x000000ff;
+    teapotPacket[12]= long(q[2]*16384*65536) >>8  & 0x000000ff;
+    teapotPacket[13]= long(q[2]*16384*65536)      & 0x000000ff;
+    teapotPacket[14]= long(q[3]*16384*65536) >>24 & 0x000000ff;
+    teapotPacket[15]= long(q[3]*16384*65536) >>16 & 0x000000ff;
+    teapotPacket[16]= long(q[3]*16384*65536) >>8  & 0x000000ff;
+    teapotPacket[17]= long(q[3]*16384*65536)      & 0x000000ff;        
+    Serial.write(teapotPacket, 22);  	
+    teapotPacket[19]++; // packetCount, loops at 0xFF on purpose                     
 #else  // for Teapot Packet
     if(SerialDebug) {
     Serial.print("ax = "); Serial.print((int)1000*ax);  
@@ -1137,4 +1145,3 @@ void MPU9250SelfTest(float * destination) // Should return percent deviation fro
 	while (Wire.available()) {
         dest[i++] = Wire.read(); }         // Put read results in the Rx buffer
 }
-
