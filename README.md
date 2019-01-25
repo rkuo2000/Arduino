@@ -1,13 +1,13 @@
 # arduino
 
 ## examples
-**BMP085** : *bmp085 atomphere pressure sensor*</br>
-**HC-SR04** : *ultrasonic ranger*</br>
-**HMC5883L** : *electronic compass*</br>
-**HTU21DF** : *humidity and temperature sensor*</br>
-**MLX90614** : *infrared temperature sensor*</br>
-**VL53L0X** : *infrared ranger (2 meters)*</br>
-**VL53L1X** : *infrared ranger (4 meters)*</br>
+**BMP085** : *bmp085 atomphere pressure sensor*<br />
+**HC-SR04** : *ultrasonic ranger*<br />
+**HMC5883L** : *electronic compass*<br />
+**HTU21DF** : *humidity and temperature sensor*<br />
+**MLX90614** : *infrared temperature sensor*<br />
+**VL53L0X** : *infrared ranger (2 meters)*<br />
+**VL53L1X** : *infrared ranger (4 meters)*<br />
 </br>
 **MPU6050_HMC5883_AHRS** : *MPU6050 + HMC5883 (GY-88 module) with Madgwick filter, support output MPUTeapot packet*</br>
 **MPU9250_BasicAHRS2** : *MPU9250 with Madgwick filter, support output MPUTeapot packet*</br>
