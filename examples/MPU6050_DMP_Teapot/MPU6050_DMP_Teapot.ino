@@ -116,7 +116,7 @@ MPU6050 mpu;
 // format used for the InvenSense teapot demo
 #define OUTPUT_TEAPOT
 
-#define LED_PIN 13 // (Arduino is 13, Teensy is 11, Teensy++ is 6, nodeMCU is D0)
+#define LED_PIN D0 // (Arduino is 13, Teensy is 11, Teensy++ is 6, nodeMCU is D0)
 bool blinkState = false;
 
 // MPU control/status vars
