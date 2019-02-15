@@ -36,7 +36,7 @@ static float  preHeading, Heading, HeadingTgt;
 // PID tuning method : Ziegler-Nichols method
 const int Ku = 10;
 const int Tu = 100;
-const int Kp = 0.5 * Ku;
+const int Kp = 0.6 * Ku;
 const int Ki = 1.2 * Ku / Tu;
 const int Kd = 3 * Ku * Tu /40;
 
