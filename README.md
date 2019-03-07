@@ -14,7 +14,8 @@
 **MPU6050_DMP_Teapot** : *MPU6050 DMP, support output MPUTeapot packet*<br />
 **MPU9250_DMP_Teapot** : *MPU9250 DMP, support output MPUTeapot packet*<br />
 *(MPUTeapot.pde will render a 3D object to show AHRS in Processing)*
-
+</br>
+**HWser2ser** : *NodeMCU (hw serial) connect to HC-05 (sw serial)*<br />
 ## libraries (used by examples)
 **ESP8266Audio.zip** : *ESP8266 Audio library*<br />
 **ESP8266_Spiram.zip** : *ESP8266 SPI RAM library*<br />
