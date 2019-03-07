@@ -13,7 +13,7 @@
 **MPU9250_BasicAHRS2** : *MPU9250 with Madgwick filter, support output MPUTeapot packet*<br />
 **MPU6050_DMP_Teapot** : *MPU6050 DMP, support output MPUTeapot packet*<br />
 **MPU9250_DMP_Teapot** : *MPU9250 DMP, support output MPUTeapot packet*<br />
-*(MPUTeapot.pde will render a 3D object to show AHRS in Processing)*
+*(MPUTeapot.pde will render a 3D object to show AHRS in Processing)*<br />
 </br>
 **HWser2ser** : *NodeMCU (hw serial) connect to HC-05 (sw serial)*<br />
 ## libraries (used by examples)
