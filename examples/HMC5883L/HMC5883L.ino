@@ -47,6 +47,7 @@ void loop()
   float heading = atan2(norm.YAxis, norm.XAxis);
   Serial.print(" Heading = ");
   Serial.print(heading, 5);
+  Serial.print(",  ");
   
   // Set declination angle on your location and fix heading
   // You can find your declination on: http://magnetic-declination.com/
@@ -72,12 +73,20 @@ void loop()
   float headingDegrees = heading * 180/M_PI; 
 
   // Output
-  Serial.print(" Heading = ");
-  Serial.print(heading, 5);
-  Serial.print(" Degress = ");
-  Serial.print(headingDegrees);
+  //Serial.print(" Heading = ");
+  //Serial.print(heading, 5);
+  //Serial.print(" Degress = ");
+  //Serial.print(headingDegrees);
+  
+  Vector mag = compass.readRaw();
+  Serial.print("mx: ");
+  Serial.print(mag.XAxis);
+  Serial.print(",  ");
+  Serial.print("my: ");
+  Serial.print(mag.YAxis);
+  Serial.print(",  ");
+  Serial.print("mz: ");
+  Serial.print(mag.ZAxis);  
   Serial.println();
-
   delay(100);
 }
-
