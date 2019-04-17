@@ -283,25 +283,22 @@ void setup()
 
     if(SelfTest[0] < 1.0f && SelfTest[1] < 1.0f && SelfTest[2] < 1.0f && SelfTest[3] < 1.0f && SelfTest[4] < 1.0f && SelfTest[5] < 1.0f) {
   
-    calibrateMPU6050(gyroBias, accelBias); // Calibrate gyro and accelerometers, load biases in bias registers  
+      calibrateMPU6050(gyroBias, accelBias); // Calibrate gyro and accelerometers, load biases in bias registers  
     
-    initMPU6050(); 
-    Serial.println("MPU6050 initialized for active data mode...."); // Initialize device for active mode read of acclerometer, gyroscope, and temperature
+      initMPU6050(); 
+      Serial.println("MPU6050 initialized for active data mode...."); // Initialize device for active mode read of acclerometer, gyroscope, and temperature
 
-    if(selfTestHMC5883L()) {   // perform magnetometer self test
-    Serial.print(" HMC5883L passed self test!");
-  }
-  else {
-    Serial.print(" HMC5883L failed self test!");
-  }
-  initHMC5883L(); // Initialize and configure magnetometer
-  Serial.println("HMC5883L initialized for active data mode....");  
-   }
-   else
-   {
-    Serial.print("Could not connect to MPU6050: 0x");
-    Serial.println(c, HEX);
-    while(1) ; // Loop forever if communication doesn't happen
+      if(selfTestHMC5883L()) {   // perform magnetometer self test
+        Serial.print(" HMC5883L passed self test!");
+      } else {
+        Serial.print(" HMC5883L failed self test!");
+      }
+      initHMC5883L(); // Initialize and configure magnetometer
+      Serial.println("HMC5883L initialized for active data mode....");  
+   } else {
+      Serial.print("Could not connect to MPU6050: 0x");
+      Serial.println(c, HEX);
+      while(1) ; // Loop forever if communication doesn't happen
    }
   }
 }
