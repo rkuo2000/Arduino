@@ -16,11 +16,11 @@
  board.
  
  Hardware setup:
- MPU6050 Breakout --------- Arduino
- 3.3V --------------------- 3.3V
- SDA ----------------------- A4
- SCL ----------------------- A5
- GND ---------------------- GND
+ GY88 -------------------- Arduino NodeMCU
+ VIN ----------------------- 5V      VIN
+ SDA ----------------------- A4      D2
+ SCL ----------------------- A5      D1
+ GND ----------------------- GND     GND
  
   Note: The MPU6050 is an I2C sensor and uses the Arduino Wire library. 
  Because the sensor is not 5V tolerant, we are using a 3.3 V 8 MHz Pro Mini or a 3.3 V Teensy 3.1.
