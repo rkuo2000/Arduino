@@ -58,7 +58,7 @@ int ax_offset,ay_offset,az_offset,gx_offset,gy_offset,gz_offset;
 void setup() {
   // join I2C bus (I2Cdev library doesn't do this automatically)
   Wire.begin();
-  Wire.setClock(400000);
+  Wire.setClock(200000);
 
   // initialize serial communication
   Serial.begin(115200);
