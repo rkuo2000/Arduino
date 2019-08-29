@@ -16,48 +16,56 @@ const String HTTP_STYLE  = "<style>.c{text-align: center;} div,input{padding:5px
 const String HTTP_SCRIPT = "<script>function c(l){document.getElementById('s').value=l.innerText||l.textContent;document.getElementById('p').focus();}</script>";
 const String HTTP_HEAD_END= "</head><body><div style='text-align:left;display:inline-block;min-width:260px;'>";
 
-const String HOMEPAGE = "<form action=\"/cmd1\" method=\"get\"><button class=\"button1\">Forward</button></form><br/><form action=\"/cmd2\" method=\"get\"><button class=\"button2\">Backward</button></form><br/><form action=\"/cmd3\" method=\"get\"><button class=\"button3\">Right</button></form><br/><form action=\"/cmd4\" method=\"get\"><button class=\"button4\">Left</button></form><br/><form action=\"/cmd5\" method=\"get\"><button class=\"button5\">Stop</button></form><br/>    ";
+string dht11_name[2] = {'Temperature','Humidity   '};
+int    dht11_value[2]= {0, 0};
+
+const String HTTP_HOMEPAGE = "<table border=\"1\"<tr><td>sensor_name</td><td>sensor_value</td></tr></table>";
+const String HTTP_PAGE_END = "</div></body></html>"
 
 void handleRoot() {
  String s =HTTP_HEAD;
       s += HTTP_STYLE;
       s += HTTP_SCRIPT;  
       s += HTTP_HEAD_END;
-      s+=HOMEPAGE;
+	  // sensor 1 : DHT11
+      s += "<table border=\"1\"<tr>"
+	  s += "<td>"+dht11_name[0]+"</td><td>"+dht11_value[0]+"</td>";
+	  s += "<td>"+dht11_name[1]+"</td><td>"+dht11_value[1]+"</td>";	  
+	  s += "</tr></table>";
+	  s += HTTP_PAGE_END;
+
   server.send(200, "text/html", s);
 }
 
-void cmd1() {\ 
- // read sensor1 data
- // ...to-be-coded
- String s =HTTP_HEAD;
-      s += HTTP_STYLE;
-      s += HTTP_SCRIPT;  
-      s += HTTP_HEAD_END;
-      s+=HOMEPAGE;
-  server.send(200, "text/html", s);
+// http://192.168.xx.xx/dht11?T=28&H=50 from Webclient_DHT11
+void dht11() {
+  String message = "Number of args received:";
+  message += server.args();                   //Get number of parameters
+  message += "\n";                            //Add a new line
 
-}
-void cmd2() {
- // read sensor2 data
- // ...to-be-coded 
- String s =HTTP_HEAD;
-      s += HTTP_STYLE;
-      s += HTTP_SCRIPT;  
-      s += HTTP_HEAD_END;
-      s+=HOMEPAGE;
-  server.send(200, "text/html", s);
+  for (int i = 0; i < server.args(); i++) {
+    message += "Arg "+(String)i + " –> "; //Include the current iteration value
+    message += server.argName(i) + ": ";      //Get the name of the parameter
+    message += server.arg(i) + "\n";          //Get the value of the parameter
+  }
+  Serial.print(message);
 
-}
-
-void cmd3() {
- // read sensor3 data
- // ...to-be-coded 
- String s =HTTP_HEAD;
-      s += HTTP_STYLE;
-      s += HTTP_SCRIPT;  
-      s += HTTP_HEAD_END;
-      s+=HOMEPAGE;
+  dht11_name[0]=server.argName(0);
+  dht11_name[1]=server.argName(1);
+  dht11_value[0]=server.arg(0);
+  dht11_value[1]=server.arg(1);
+  
+  String s  = HTTP_HEAD;
+         s += HTTP_STYLE;
+         s += HTTP_SCRIPT;  
+         s += HTTP_HEAD_END;
+	     // sensor 1 : DHT11
+         s += "<table border=\"1\"<tr>"
+	     s += "<td>"+dht11_name[0]+"</td><td>"+dht11_value[0]+"</td>";
+	     s += "<td>"+dht11_name[1]+"</td><td>"+dht11_value[1]+"</td>";	  
+	     s += "</tr></table>";
+	     s += HTTP_PAGE_END;		 
+	 
   server.send(200, "text/html", s);
 }
 
@@ -98,9 +106,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   server.on("/", handleRoot);
-  server.on("/cmd1", cmd1);
-  server.on("/cmd2", cmd2);
-  server.on("/cmd3", cmd3);
+  server.on("/dht11", dht11);
   
   Serial.println("HTTP server started");
   server.begin();
