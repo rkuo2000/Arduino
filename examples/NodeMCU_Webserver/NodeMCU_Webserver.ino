@@ -6,8 +6,8 @@
 #include <WiFiClient.h> 
 #include <ESP8266WebServer.h>
 
-const char* ssid     = "Home_SSID";
-const char* password = "Home_Password";
+const char* ssid     = "Kuo";
+const char* password = "0972211921";
 
 ESP8266WebServer server(80);
 
@@ -16,28 +16,33 @@ const String HTTP_STYLE  = "<style>.c{text-align: center;} div,input{padding:5px
 const String HTTP_SCRIPT = "<script>function c(l){document.getElementById('s').value=l.innerText||l.textContent;document.getElementById('p').focus();}</script>";
 const String HTTP_HEAD_END= "</head><body><div style='text-align:left;display:inline-block;min-width:260px;'>";
 
-string dht11_name[2] = {'Temperature','Humidity   '};
-int    dht11_value[2]= {0, 0};
+String dht11_name0 = "Temperature";
+String dht11_name1 = "Humidity   ";
+String dht11_value0= "0 ";
+String dht11_value1 = "0 ";
 
 const String HTTP_HOMEPAGE = "<table border=\"1\"<tr><td>sensor_name</td><td>sensor_value</td></tr></table>";
-const String HTTP_PAGE_END = "</div></body></html>"
+const String HTTP_PAGE_END = "</div></body></html>";
 
 void handleRoot() {
- String s =HTTP_HEAD;
-      s += HTTP_STYLE;
-      s += HTTP_SCRIPT;  
-      s += HTTP_HEAD_END;
-	  // sensor 1 : DHT11
-      s += "<table border=\"1\"<tr>"
-	  s += "<td>"+dht11_name[0]+"</td><td>"+dht11_value[0]+"</td>";
-	  s += "<td>"+dht11_name[1]+"</td><td>"+dht11_value[1]+"</td>";	  
-	  s += "</tr></table>";
-	  s += HTTP_PAGE_END;
-
+  // DHT11 Sensor Display
+  String s  = HTTP_HEAD;
+         s += HTTP_STYLE;
+         s += HTTP_SCRIPT;  
+         s += HTTP_HEAD_END;
+         // sensor 1 : DHT11
+         s += "<table border=\"1\"";
+         s += "<tr><th align='center'>DHT11 sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";   
+         s += "</tr></table>";
+         s += HTTP_PAGE_END;
+         
   server.send(200, "text/html", s);
 }
 
-// http://192.168.xx.xx/dht11?T=28&H=50 from Webclient_DHT11
+// http://192.168.xx.xx/dht11?T=28&H=50 from Webclient_DHT11 
+//(you can open a browser to test it, too)
 void dht11() {
   String message = "Number of args received:";
   message += server.args();                   //Get number of parameters
@@ -50,44 +55,28 @@ void dht11() {
   }
   Serial.print(message);
 
-  dht11_name[0]=server.argName(0);
-  dht11_name[1]=server.argName(1);
-  dht11_value[0]=server.arg(0);
-  dht11_value[1]=server.arg(1);
+  dht11_value0=server.arg(0);
+  dht11_value1=server.arg(1);
   
   String s  = HTTP_HEAD;
          s += HTTP_STYLE;
          s += HTTP_SCRIPT;  
          s += HTTP_HEAD_END;
-	     // sensor 1 : DHT11
-         s += "<table border=\"1\"<tr>"
-	     s += "<td>"+dht11_name[0]+"</td><td>"+dht11_value[0]+"</td>";
-	     s += "<td>"+dht11_name[1]+"</td><td>"+dht11_value[1]+"</td>";	  
-	     s += "</tr></table>";
-	     s += HTTP_PAGE_END;		 
+         // sensor 1 : DHT11
+         s += "<table border=\"1\"";
+         s += "<tr><th align='center'>DHT11 sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";   
+         s += "</tr></table>";
+         s += HTTP_PAGE_END;	 
 	 
   server.send(200, "text/html", s);
 }
 
 void setup() {
   Serial.begin(115200);
-
-  // disable all output to save power
-  turnOff(0);
-  turnOff(2);
-  turnOff(4);
-  turnOff(5);
-  turnOff(12);
-  turnOff(13);
-  turnOff(14);
-  turnOff(15);
-
-  dht.begin();
-  delay(10);
   
-
   // We start by connecting to a WiFi network
-
   Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
@@ -107,9 +96,9 @@ void setup() {
 
   server.on("/", handleRoot);
   server.on("/dht11", dht11);
-  
+
   Serial.println("HTTP server started");
-  server.begin();
+  server.begin();  
 }
 
 void loop() {
