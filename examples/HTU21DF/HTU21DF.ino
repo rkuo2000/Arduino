@@ -9,7 +9,7 @@
  ****************************************************/
 
 #include <Wire.h>
-#include "Adafruit_HTU21DF.h"
+#include <Adafruit_HTU21DF.h>
 
 // Connect Vin to 3-5VDC
 // Connect GND to ground
@@ -19,7 +19,7 @@
 Adafruit_HTU21DF htu = Adafruit_HTU21DF();
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("HTU21D-F test");
 
   if (!htu.begin()) {
