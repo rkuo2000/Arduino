@@ -17,10 +17,14 @@
 </br>
 **HWser2ser** : *NodeMCU (hw serial) connect to HC-05 (sw serial)*<br />
 ## libraries (used by examples)
+**Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
+**Adafruit_SSD1306.zip** : *I2C OLED display library*<br />
+**DHT.zip** : *DHT Temperature and Humidity sensor library*<br />
 **ESP8266Audio.zip** : *ESP8266 Audio library*<br />
 **ESP8266_Spiram.zip** : *ESP8266 SPI RAM library*<br />
+**HMC5883L.zip** : *HMC5883L magnetometer library*<br />
 **IRremoteESP8266.zip** : *ESP8266 IR Remote library*<br />
 **MPU6050.zip**: *MPU6050 DMP library*<br />
-**SparkFun_MPU9250-DMP.zip** : * MPU9250 DMP library*<br />
+**MPU9250-DMP.zip** : * MPU9250 DMP library*<br />
 **Time.zip** : *timer library*<br />
 **TimeAlarms-1.5.0.zip** : *timer alarm library*<br />
