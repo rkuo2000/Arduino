@@ -42,6 +42,7 @@
 ## libraries (used by examples)
 **Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
 **Adafruit_SSD1306.zip** : *I2C OLED display library*<br />
+**Adafruit_Sensor.zip** : *Adafruit_Sensor.h for DHT11*<br />
 **DHT.zip** : *DHT Temperature and Humidity sensor library*<br />
 **ESP8266Audio.zip** : *ESP8266 Audio library*<br />
 **ESP8266_Spiram.zip** : *ESP8266 SPI RAM library*<br />
