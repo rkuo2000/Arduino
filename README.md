@@ -1,4 +1,4 @@
-# using Arduino IDE (v1.8.9)
+# Arduino sample codes
 
 ## examples
 **BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
