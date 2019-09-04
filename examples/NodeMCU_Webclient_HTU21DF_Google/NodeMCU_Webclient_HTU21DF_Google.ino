@@ -12,8 +12,8 @@
 
 Adafruit_HTU21DF htu = Adafruit_HTU21DF();
 
-const char* ssid     = "Kuo";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 String      webserverIP = "http://192.168.1.5"; // Your Webserver IP address
 
 void setup() {
