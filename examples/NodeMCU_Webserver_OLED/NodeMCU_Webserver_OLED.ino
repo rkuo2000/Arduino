@@ -13,8 +13,8 @@
 #define OLED_RESET LED_BUILTIN
 Adafruit_SSD1306 display(128, 64, &Wire, OLED_RESET); // 0.9" OLED 128x64: Width = 128, Height = 64
 
-const char* ssid     = "Kuo";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 
 ESP8266WebServer server(80);
 
