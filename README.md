@@ -49,5 +49,6 @@
 **IRremoteESP8266.zip** : *ESP8266 IR Remote library*<br />
 **MPU6050.zip**: *MPU6050 DMP library*<br />
 **MPU9250-DMP.zip** : * MPU9250 DMP library*<br />
+**PubSubClient-2.7.0.zip** : * MQTT client library*<br />
 **Time.zip** : *timer library*<br />
 **TimeAlarms-1.5.0.zip** : *timer alarm library*<br />
