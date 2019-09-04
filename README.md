@@ -9,7 +9,6 @@
 **VL53L0X** : *VL53L0X infrared ranger ~1 meter(I2C)*<br />
 **VL53L1X** : *VL53L1X infrared ranger ~2 meters(I2C)*<br />
 **PWM_RGBLED** : *PWM driving RGB-LED*<br />
-**mqtt_client**: *WiFi MQTT client*<br />
 </br>
 **MPU6050_Calibration** : *MPU6050 calibration to get and set X,Y,Z offset value*<br />
 **MPU6050_DMP_Teapot** : *MPU6050 DMP, support output MPUTeapot packet*<br />
