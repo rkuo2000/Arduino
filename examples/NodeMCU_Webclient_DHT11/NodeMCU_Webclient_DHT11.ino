@@ -15,7 +15,7 @@ DHT dht(DHTPIN, DHTTYPE, 15);
 
 const char* ssid     = "Your_SSID";
 const char* password = "Your_Password";
-String      webserverIP = "http://192.168.1.5";
+String      webserverIP = "http://192.168.1.5"; // Your Webserver IP address
 
 void setup() {
   Serial.begin(115200);
