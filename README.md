@@ -41,6 +41,7 @@
 
 ## libraries (used by examples)
 **Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
+**Adafruit_HTU21DF.zip** : *HTU21DF Temperature & Humidity sensor library*<br />
 **Adafruit_SSD1306.zip** : *I2C OLED display library*<br />
 **Adafruit_Sensor.zip** : *Adafruit_Sensor.h for DHT11*<br />
 **DHT.zip** : *DHT Temperature and Humidity sensor library*<br />
