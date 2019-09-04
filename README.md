@@ -1,13 +1,15 @@
 # arduino
 
 ## examples
-**BMP085** : *bmp085 atomphere pressure sensor*<br />
-**HC-SR04** : *ultrasonic ranger*<br />
-**HMC5883L** : *electronic compass*<br />
-**HTU21DF** : *humidity and temperature sensor*<br />
-**MLX90614** : *infrared temperature sensor*<br />
-**VL53L0X** : *infrared ranger (~1 meters)*<br />
-**VL53L1X** : *infrared ranger (~2 meters)*<br />
+**BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
+**HC-SR04** : *SR04 is an ultrasonic ranger (GPIO)*<br />
+**HMC5883L** : *HMC5883 is a magnetometer / electronic compass (I2C)*<br />
+**HTU21DF** : *HTU21DF is humidity and temperature sensor (I2C)*<br />
+**MLX90614** : *MLX90614 infrared temperature sensor (I2C)*<br />
+**VL53L0X** : *VL53L0X infrared ranger ~1 meter(I2C)*<br />
+**VL53L1X** : *VL53L1X infrared ranger ~2 meters(I2C)*<br />
+**PWM_RGBLED** : *PWM driving RGB-LED*<br />
+**mqtt_client**: *WiFi MQTT client*<br />
 </br>
 **MPU6050_Calibration** : *MPU6050 calibration to get and set X,Y,Z offset value*<br />
 **MPU6050_DMP_Teapot** : *MPU6050 DMP, support output MPUTeapot packet*<br />
@@ -31,6 +33,13 @@
 **NodeMCU_Wemos** : *NodeMCU emulate several Wemo switches (smarthome switches)*<br />
 **NodeMCU_coapclient** : *NodeMCU run as CoAP client*<br />
 **NodeMCU_coapserver** : *NodeMCU run as CoAP server*<br />
+**NodeMCU_mqtt** : *NodeMCU run both MQTT publisher and subscriber*<br />
+**NodeMCU_mqtt_DHT11** : *NodeMCU run as a MQTT publisher with DHT11*<br />
+**NodeMCU_mqtt_pub** : *NodeMCU run as a MQTT publisher*<br />
+**NodeMCU_mqtt_sub** : *NodeMCU run as a MQTT subscriber*<br />
+**NodeMCU_servo** : *NodeMCU drive small DC servo*<br />
+**NodeMCU_thingspeak_DHT11** : *NodeMCU read DHT11 sensor data and upload to Thingspeak.com *<br />
+
 ## libraries (used by examples)
 **Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
 **Adafruit_SSD1306.zip** : *I2C OLED display library*<br />
