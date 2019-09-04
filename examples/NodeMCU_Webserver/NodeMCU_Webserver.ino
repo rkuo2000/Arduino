@@ -1,6 +1,6 @@
 //
 // Webserver to receive data from Webclients
-// To use a web browser to open IP address of this webserver 
+// To use a web browser to open IP address of this webserver to see client sensor data
 //
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h> 
