@@ -26,6 +26,8 @@
 **NodeMCU_RoboCar_WebUI** : *NodeMCU WebUI to control two wheels*<br />
 **NodeMCU_RoboCar_PID** : *NodeMCU PID controller to output PWM driving TB11612*<br />
 **NodeMCU_Webclient_DHT11** : *NodeMCU read DHT11 sensor and send data to Webserver*<br />
+**NodeMCU_Webclient_TU21DF** : *NodeMCU read HTU21DF sensor and send data to Webserver*<br />
+**NodeMCU_Webclient_PM5003** : *NodeMCU read PM5003 sensor and send data to Webserver*<br />
 **NodeMCU_Webserver** : *NodeMCU running Webserver to receive sensor from http client*<br />
 **NodeMCU_Webserver_LED** : *NodeMCU running Webserver and use use GPIOs to control LEDs*<br />
 **NodeMCU_Webserver_Remote** : *NodeMCU running Webserver to send IR remote signals to a cablebox*<br />
