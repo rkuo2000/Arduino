@@ -37,7 +37,7 @@
 **NodeMCU_mqtt_pub** : *NodeMCU run as a MQTT publisher*<br />
 **NodeMCU_mqtt_sub** : *NodeMCU run as a MQTT subscriber*<br />
 **NodeMCU_servo** : *NodeMCU drive small DC servo*<br />
-**NodeMCU_thingspeak_DHT11** : *NodeMCU read DHT11 sensor data and upload to Thingspeak.com *<br />
+**NodeMCU_thingspeak_DHT11** : *NodeMCU read DHT11 sensor data and upload to Thingspeak.com*<br />
 
 ## libraries (used by examples)
 **Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
