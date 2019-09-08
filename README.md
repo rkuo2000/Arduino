@@ -9,7 +9,7 @@
 **VL53L0X** : *VL53L0X infrared ranger ~1 meter(I2C)*<br />
 **VL53L1X** : *VL53L1X infrared ranger ~2 meters(I2C)*<br />
 **PWM_RGBLED** : *PWM driving RGB-LED*<br />
-</br>
+** *MPU6050 * MPU9250 are IMUs including 3-axis accelerometer, 3-axis gyroscope, 3-axis magnetometer*</br>
 **MPU6050_Calibration** : *MPU6050 calibration to get and set X,Y,Z offset value*<br />
 **MPU6050_DMP_Teapot** : *MPU6050 DMP, support output MPUTeapot packet*<br />
 **MPU6050_HMC5883_AHRS** : *MPU6050 + HMC5883 (GY-88 module) with Madgwick filter, support output MPUTeapot packet*<br />
