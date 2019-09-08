@@ -6,8 +6,8 @@
 #include <WiFiClient.h> 
 #include <ESP8266WebServer.h>
 
-const char* ssid     = "Your_SSID";
-const char* password = "Your_Password";
+const char* ssid     = "Kuo";
+const char* password = "0972211921";
 
 ESP8266WebServer server(80);
 
@@ -21,14 +21,21 @@ const String HTTP_PAGE_END = "</div></body></html>";
 
 // DHT11
 String dht11_name0 = "Temperature";
-String dht11_name1 = "Humidity   ";
-String dht11_value0= "0 ";
-String dht11_value1= "0 ";
+String dht11_name1 = "Humidity";
+String dht11_value0= "0";
+String dht11_value1= "0";
 // HTU21DF
 String htu21_name0 = "Temperature";
-String htu21_name1 = "Humidity   ";
+String htu21_name1 = "Humidity";
 String htu21_value0= "0 ";
 String htu21_value1= "0 ";
+// PM5003
+String pm_name0 = "PM1.0";
+String pm_name1 = "PM2.5";
+String pm_name2 = "PM10.0";
+String pm_value0= "0 ug/m3";
+String pm_value1= "0 ug/m3";
+String pm_value2= "0 ug/m3";
 
 void handleRoot() {
   // Display Sensor Status
@@ -40,6 +47,10 @@ void handleRoot() {
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
+         s += "<tr><th align='center'>PM5003 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+pm_name0+"</td><td align='center'>"+pm_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name1+"</td><td align='center'>"+pm_value1+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name2+"</td><td align='center'>"+pm_value2+"</td></tr>";               
          s += "</tr></table>";
          s += HTTP_PAGE_END;
          
@@ -71,6 +82,10 @@ void dht11() {
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
+         s += "<tr><th align='center'>PM5003 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+pm_name0+"</td><td align='center'>"+pm_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name1+"</td><td align='center'>"+pm_value1+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name2+"</td><td align='center'>"+pm_value2+"</td></tr>";          
          s += "</tr></table>";
          s += HTTP_PAGE_END; 
 	 
@@ -102,6 +117,46 @@ void htu21() {
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
+         s += "<tr><th align='center'>PM5003 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+pm_name0+"</td><td align='center'>"+pm_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name1+"</td><td align='center'>"+pm_value1+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name2+"</td><td align='center'>"+pm_value2+"</td></tr>";          
+         s += "</tr></table>";
+         s += HTTP_PAGE_END; 
+   
+  server.send(200, "text/html", s);
+}
+
+// http://192.168.zz.zz/pm25?pm10=25&pm100=40&pm100=50 from Webclient_PM5003
+//(you can open a browser to test it, too)
+void pm25() {
+  String message = "Number of args received:";
+  message += server.args();                   //Get number of parameters
+  message += "\n";                            //Add a new line
+
+  for (int i = 0; i < server.args(); i++) {
+    message += "Arg "+(String)i + " –> "; //Include the current iteration value
+    message += server.argName(i) + ": ";      //Get the name of the parameter
+    message += server.arg(i) + "\n";          //Get the value of the parameter
+  }
+  Serial.print(message);
+
+  pm_value0=server.arg(0)+" ug/m3";
+  pm_value1=server.arg(1)+" ug/m3";
+  pm_value2=server.arg(2)+" ug/m3";
+    
+  String s  = HTTP_WEBPAGE;
+         s += "<table border=\"1\"";
+         s += "<tr><th align='center'>DHT11 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";
+         s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
+         s += "<tr><th align='center'>PM5003 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+pm_name0+"</td><td align='center'>"+pm_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name1+"</td><td align='center'>"+pm_value1+"</td></tr>";
+         s += "<tr><td align='center'>"+pm_name2+"</td><td align='center'>"+pm_value2+"</td></tr>";          
          s += "</tr></table>";
          s += HTTP_PAGE_END; 
    
@@ -132,6 +187,7 @@ void setup() {
   server.on("/", handleRoot);
   server.on("/dht11", dht11);
   server.on("/htu21", htu21);
+  server.on("/pm25", pm25);  
   
   Serial.println("HTTP server started");
   server.begin();  
