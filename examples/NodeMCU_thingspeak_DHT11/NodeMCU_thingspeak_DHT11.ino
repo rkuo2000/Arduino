@@ -9,17 +9,11 @@ extern "C" {
 }
 #include "DHT.h"
 
-#define DHTPIN 12     // NodeMCU pin D6 connected to DHT11 pin Data
+#define DHTPIN D6     // NodeMCU pin D6 connected to DHT11 pin Data
+DHT dht(DHTPIN, DHT11, 15);
 
-// Uncomment whatever type you're using!
-#define DHTTYPE DHT11   // DHT 11 
-//define DHTTYPE DHT22   // DHT 22  (AM2302)
-//#define DHTTYPE DHT21   // DHT 21 (AM2301)
-
-DHT dht(DHTPIN, DHTTYPE, 15);
-
-const char* ssid     = "Kuo";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 
 
 const char* host = "api.thingspeak.com";
