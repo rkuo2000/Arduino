@@ -24,6 +24,8 @@
 **NodeMCU_NTP_RTC** : *NodeMCU Real-Time Clock reading Network Time Server*<br />
 **NodeMCU_RoboCar_TB6612** : *NodeMCU output PWM to TB6612 to control two wheels(3~6V DC motors x2)*<br />
 **NodeMCU_RoboCar_WebUI** : *NodeMCU WebUI to control two wheels*<br />
+**NodeMCU_UART_HC05** : *NodeMCU use Software UART to read HC05 Bluetooth serial*<br />
+**NodeMCU_UART_PM5003** : *NodeMCU use Software UART to read PM5003 air quality sensor*<br />
 **NodeMCU_RoboCar_PID** : *NodeMCU PID controller to output PWM driving TB11612*<br />
 **NodeMCU_Webclient_DHT22** : *NodeMCU read DHT22 sensor and send data to Webserver*<br />
 **NodeMCU_Webclient_TU21DF** : *NodeMCU read HTU21DF sensor and send data to Webserver*<br />
