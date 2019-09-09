@@ -25,7 +25,7 @@
 **NodeMCU_RoboCar_TB6612** : *NodeMCU output PWM to TB6612 to control two wheels(3~6V DC motors x2)*<br />
 **NodeMCU_RoboCar_WebUI** : *NodeMCU WebUI to control two wheels*<br />
 **NodeMCU_RoboCar_PID** : *NodeMCU PID controller to output PWM driving TB11612*<br />
-**NodeMCU_Webclient_DHT11** : *NodeMCU read DHT11 sensor and send data to Webserver*<br />
+**NodeMCU_Webclient_DHT22** : *NodeMCU read DHT22 sensor and send data to Webserver*<br />
 **NodeMCU_Webclient_TU21DF** : *NodeMCU read HTU21DF sensor and send data to Webserver*<br />
 **NodeMCU_Webclient_PM5003** : *NodeMCU read PM5003 sensor and send data to Webserver*<br />
 **NodeMCU_Webserver** : *NodeMCU running Webserver to receive sensor from http client*<br />
