@@ -27,14 +27,12 @@
 #include <PubSubClient.h>
 #include "DHT.h"
 
-#define DHTPIN 12     // NodeMCU pin D6 connected to DHT11 pin Data
-#define DHTTYPE DHT11 // DHT 11 
+#define DHTPIN D6     // NodeMCU pin D6 connected to DHT11 pin Data
+DHT dht(DHTPIN, DHT11, 15);
 
-DHT dht(DHTPIN, DHTTYPE, 15);
 // Update these with values suitable for your network.
-
-const char* ssid = "Kuo";
-const char* password = "0972211921";
+const char* ssid = "Your_SSID";
+const char* password = "Your_Password";
 //const char* mqtt_server = "broker.mqtt-dashboard.com";
 const char* mqtt_server = "192.168.0.12";
 const char* outTopic = "NTOUEE-AIOT";
