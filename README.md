@@ -31,7 +31,8 @@
 **NodeMCU_Webclient_TU21DF** : *NodeMCU read HTU21DF sensor and send data to Webserver*<br />
 **NodeMCU_Webclient_PM5003** : *NodeMCU read PM5003 sensor and send data to Webserver*<br />
 **NodeMCU_Webserver** : *NodeMCU running Webserver to receive sensor from http client*<br />
-**NodeMCU_Webserver_LED** : *NodeMCU running Webserver and use use GPIOs to control LEDs*<br />
+**NodeMCU_Webserver_GPIO** : *NodeMCU running Webserver and use use GPIOs to control LEDs*<br />
+**NodeMCU_Webserver_OLED** : *NodeMCU running Webserver and use I2C OLED display (SSD1306)*<br />
 **NodeMCU_Webserver_Remote** : *NodeMCU running Webserver to send IR remote signals to a cablebox*<br />
 **NodeMCU_Wemo** : *NodeMCU emulate a Wemo switch (smarthome switch)*<br />
 **NodeMCU_Wemos** : *NodeMCU emulate several Wemo switches (smarthome switches)*<br />
