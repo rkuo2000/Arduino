@@ -4,7 +4,7 @@
 #include <WiFiClient.h>
 #include <DHT.h>
 
-#define DHTPIN 12     // NodeMCU pin D6 connected to DHT11 pin Data
+#define DHTPIN 12     // NodeMCU pin D6 connected to DHT11 Data pin
 
 // Uncomment whatever type you're using!
 #define DHTTYPE DHT11   // DHT 11 
