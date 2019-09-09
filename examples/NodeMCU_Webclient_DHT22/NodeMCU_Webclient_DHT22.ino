@@ -7,8 +7,8 @@
 #define DHTPIN D6     // NodeMCU pin D6 connected to DHT22 Data pin
 DHT dht(DHTPIN, DHT22, 15); 
 
-const char* ssid     = "Kuo";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 String      webserverIP = "http://192.168.1.5"; // Your Webserver IP address
 
 void setup() {
