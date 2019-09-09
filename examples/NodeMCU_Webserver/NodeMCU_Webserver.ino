@@ -19,17 +19,17 @@ const String HTTP_WEBPAGE = HTTP_PAGE_HEAD + HTTP_PAGE_STYLE + HTTP_PAGE_SCRIPT 
 
 const String HTTP_PAGE_END = "</div></body></html>";
 
-// DHT11
-String dht11_name0 = "Temperature";
-String dht11_name1 = "Humidity";
-String dht11_value0= "0";
-String dht11_value1= "0";
-// HTU21DF
+// DHT22 sensor data
+String dht22_name0 = "Temperature";
+String dht22_name1 = "Humidity";
+String dht22_value0= "0";
+String dht22_value1= "0";
+// HTU21DF sensor data
 String htu21_name0 = "Temperature";
 String htu21_name1 = "Humidity";
 String htu21_value0= "0 ";
 String htu21_value1= "0 ";
-// PM5003
+// PM5003 sensor data
 String pm_name0 = "PM1.0";
 String pm_name1 = "PM2.5";
 String pm_name2 = "PM10.0";
@@ -41,9 +41,9 @@ void handleRoot() {
   // Display Sensor Status
   String s  = HTTP_WEBPAGE;
          s += "<table border=\"1\"";
-         s += "<tr><th align='center'>DHT11 Sensor</th><th align='cener'>value</th></tr>";
-         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
-         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";
+         s += "<tr><th align='center'>DHT22 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht22_name0+"</td><td align='center'>"+dht22_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht22_name1+"</td><td align='center'>"+dht22_value1+"</td></tr>";
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
@@ -57,9 +57,9 @@ void handleRoot() {
   server.send(200, "text/html", s);
 }
 
-// http://192.168.xx.xx/dht11?T=28&H=50 from Webclient_DHT11 
+// http://192.168.xx.xx/dht22?T=28&H=50 from Webclient_DHT22
 //(you can open a browser to test it, too)
-void dht11() {
+void dht22() {
   String message = "Number of args received:";
   message += server.args();                   //Get number of parameters
   message += "\n";                            //Add a new line
@@ -71,14 +71,14 @@ void dht11() {
   }
   Serial.print(message);
 
-  dht11_value0=server.arg(0);
-  dht11_value1=server.arg(1);
+  dht22_value0=server.arg(0);
+  dht22_value1=server.arg(1);
   
   String s  = HTTP_WEBPAGE;
          s += "<table border=\"1\"";
-         s += "<tr><th align='center'>DHT11 Sensor</th><th align='cener'>value</th></tr>";
-         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
-         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";
+         s += "<tr><th align='center'>DHT22 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht22_name0+"</td><td align='center'>"+dht22_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht22_name1+"</td><td align='center'>"+dht22_value1+"</td></tr>";
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
@@ -111,9 +111,9 @@ void htu21() {
   
   String s  = HTTP_WEBPAGE;
          s += "<table border=\"1\"";
-         s += "<tr><th align='center'>DHT11 Sensor</th><th align='cener'>value</th></tr>";
-         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
-         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";
+         s += "<tr><th align='center'>DHT22 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht22_name0+"</td><td align='center'>"+dht22_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht22_name1+"</td><td align='center'>"+dht22_value1+"</td></tr>";
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
@@ -147,9 +147,9 @@ void pm25() {
     
   String s  = HTTP_WEBPAGE;
          s += "<table border=\"1\"";
-         s += "<tr><th align='center'>DHT11 Sensor</th><th align='cener'>value</th></tr>";
-         s += "<tr><td align='center'>"+dht11_name0+"</td><td align='center'>"+dht11_value0+"</td></tr>";
-         s += "<tr><td align='center'>"+dht11_name1+"</td><td align='center'>"+dht11_value1+"</td></tr>";
+         s += "<tr><th align='center'>DHT22 Sensor</th><th align='cener'>value</th></tr>";
+         s += "<tr><td align='center'>"+dht22_name0+"</td><td align='center'>"+dht22_value0+"</td></tr>";
+         s += "<tr><td align='center'>"+dht22_name1+"</td><td align='center'>"+dht22_value1+"</td></tr>";
          s += "<tr><th align='center'>HTU21 Sensor</th><th align='cener'>value</th></tr>";
          s += "<tr><td align='center'>"+htu21_name0+"</td><td align='center'>"+htu21_value0+"</td></tr>";
          s += "<tr><td align='center'>"+htu21_name1+"</td><td align='center'>"+htu21_value1+"</td></tr>";
@@ -185,7 +185,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   server.on("/", handleRoot);
-  server.on("/dht11", dht11);
+  server.on("/dht22", dht22);
   server.on("/htu21", htu21);
   server.on("/pm25", pm25);  
   
