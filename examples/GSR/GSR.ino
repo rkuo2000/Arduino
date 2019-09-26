@@ -1,16 +1,19 @@
-# GSR - Galvanic Skin Response
-const int BUZZER = D0;
-const int GSR = A2;
+// GSR - Galvanic Skin Response sensor (analog input)
+
+const int BUZZER = D0; // output to buzzer
+const int GSR = A2;    // analog input from GSR sensor
 int threshold = 0;
 int sensorValue;
 
 void setup(){
   long sum=0;
-  Serial.begin(9600);
+	
+  Serial.begin(115200);
   pinMode(BUZZER,OUTPUT);
   digitalWrite(BUZZER,LOW);
   delay(1000);
   
+  # read 500 times to avergage as the threshold
   for(int i=0;i<500;i++){
     sensorValue=analogRead(GSR);
     sum += sensorValue;
