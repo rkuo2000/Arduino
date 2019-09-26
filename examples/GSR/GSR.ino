@@ -33,13 +33,13 @@ void loop(){
   if(abs(temp)>50)
   {
     sensorValue=analogRead(GSR);
-    temp = threshold - sensorValue;
-    if(abs(temp)>50){
+    temp = threshold - sensorValue; 
+    if(abs(temp)>50){               
       digitalWrite(BUZZER,HIGH);
       Serial.println("YES!");
       delay(3000);
       digitalWrite(BUZZER,LOW);
       delay(1000);
-	}
+    }
   }
 }
