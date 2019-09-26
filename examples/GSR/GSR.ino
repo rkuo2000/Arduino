@@ -1,5 +1,7 @@
 // GSR - Galvanic Skin Response sensor (analog input)
-
+// print GSR data to Serial port
+// use Putty connect to Serial port, then save print data as .csv
+// Excel can read .csv to show waveform
 const int BUZZER = D0; // output to buzzer
 const int GSR = A2;    // analog input from GSR sensor
 int threshold = 0;
