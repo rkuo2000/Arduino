@@ -20,6 +20,8 @@
 **MPU9250_DMP_Teapot** : *MPU9250 DMP, support output MPUTeapot packet*<br />
 *(MPUTeapot.pde will render a 3D object to show AHRS in Processing)*<br />
 </br>
+**ESP32CAM_CamWebServer** : *ESP32-CAM Camera Web Server*<br />
+</br>
 **NodeMCU_Audio_Wav** : *NodeMCU play audio .wav file*<br />
 **NodeMCU_NTP_RTC** : *NodeMCU Real-Time Clock reading Network Time Server*<br />
 **NodeMCU_RoboCar_TB6612** : *NodeMCU output PWM to TB6612 to control two wheels(3~6V DC motors x2)*<br />
