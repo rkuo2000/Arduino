@@ -28,8 +28,8 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "Kuo";
-const char* password = "0972211921";
+const char* ssid = "your_wifi_ssid";
+const char* password = "your_wifi_password";
 //const char* mqtt_server = "broker.mqtt-dashboard.com";
 const char* mqtt_server = "192.168.0.12";
 const char* outTopic = "NTOUEE-AIOT";
