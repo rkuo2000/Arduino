@@ -42,7 +42,7 @@
 **NodeMCU_coapclient** : *NodeMCU run as CoAP client*<br />
 **NodeMCU_coapserver** : *NodeMCU run as CoAP server*<br />
 **NodeMCU_MQTTBroker** : *NodeMCU run as a MQTT Broker*<br />
-**NodeMCU_mqtt_DHT11** : *NodeMCU run as a MQTT publisher with DHT11*<br />
+**NodeMCU_mqtt_DHT22** : *NodeMCU run as a MQTT publisher with DHT22*<br />
 **NodeMCU_mqtt_pub** : *NodeMCU run as a MQTT publisher*<br />
 **NodeMCU_mqtt_pubsub** : *NodeMCU run both MQTT publisher and subscriber*<br />
 **NodeMCU_mqtt_sub** : *NodeMCU run as a MQTT subscriber*<br />
