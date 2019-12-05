@@ -21,15 +21,11 @@
 #define DHTPIN D6     // NodeMCU pin D6 connected to DHT11 pin Data
 DHT dht(DHTPIN, DHT22, 15);
 
-//#define WIFI_SSID "YOUR_WIFI_SSID"
-//#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
-//#define FIREBASE_HOST "YOUR_PROJECT_ID.firebaseio.com"
-//#define FIREBASE_AUTH "YOUR_FIREBASE_AUTH" // secret (40 chars)
+#define WIFI_SSID "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+#define FIREBASE_HOST "YOUR_PROJECT_ID.firebaseio.com"
+#define FIREBASE_AUTH "YOUR_FIREBASE_AUTH" // secret (40 chars)
 
-#define WIFI_SSID "TP-LINK_CBD824"
-#define WIFI_PASSWORD "66747222"
-#define FIREBASE_HOST "ntou-aiot.firebaseio.com"
-#define FIREBASE_AUTH "cwQnlgTquVrtRzg9xdgc0NLDmkNyCnAF81alTLmE" // secret (40 chars)
 const String path="/CC3302/DHT22";
 
 //Define FirebaseESP8266 data object
