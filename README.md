@@ -2,11 +2,11 @@
 
 ## examples
 **BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
+**DHT22** : *DHT22 is humidity and temperature sensor (one-wire)*<br />
 **GSR** : *GSR is a galvanic skin response sensor (Analog)*<br />
 **HC-SR04** : *SR04 is an ultrasonic ranger (GPIO)*<br />
 **HC05** : *use Software UART to read/write HC05 Bluetooth serial*<br />
 **HMC5883L** : *HMC5883 is a magnetometer / electronic compass (I2C)*<br />
-**DHT22** : *DHT22 is humidity and temperature sensor (one-wire)*<br />
 **HTU21DF** : *HTU21DF is humidity and temperature sensor (I2C)*<br />
 **MLX90614** : *MLX90614 infrared temperature sensor (I2C)*<br />
 **PM5003** : *use Software UART to read PM5003 air quality sensor*<br />
