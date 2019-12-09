@@ -4,9 +4,11 @@
 **BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
 **GSR** : *GSR is a galvanic skin response sensor (Analog)*<br />
 **HC-SR04** : *SR04 is an ultrasonic ranger (GPIO)*<br />
+**HC05** : *use Software UART to read/write HC05 Bluetooth serial*<br />
 **HMC5883L** : *HMC5883 is a magnetometer / electronic compass (I2C)*<br />
 **HTU21DF** : *HTU21DF is humidity and temperature sensor (I2C)*<br />
 **MLX90614** : *MLX90614 infrared temperature sensor (I2C)*<br />
+**PM5003** : *use Software UART to read PM5003 air quality sensor*<br />
 **VL53L0X** : *VL53L0X infrared ranger ~1 meter(I2C)*<br />
 **VL53L1X** : *VL53L1X infrared ranger ~2 meters(I2C)*<br />
 **PWM_RGBLED** : *PWM driving RGB-LED*<br />
@@ -27,8 +29,6 @@
 **NodeMCU_RoboCar_TB6612** : *NodeMCU output PWM to TB6612 to control two wheels(3~6V DC motors x2)*<br />
 **NodeMCU_RoboCar_WebUI** : *NodeMCU WebUI to control two wheels*<br />
 **NodeMCU_servo** : *NodeMCU drive DC servo*<br />
-**NodeMCU_UART_HC05** : *NodeMCU use Software UART to read/write HC05 Bluetooth serial*<br />
-**NodeMCU_UART_PM5003** : *NodeMCU use Software UART to read PM5003 air quality sensor*<br />
 **NodeMCU_RoboCar_PID** : *NodeMCU PID controller to output PWM driving TB11612*<br />
 **NodeMCU_Webclient_DHT22** : *NodeMCU read DHT22 sensor and send data to Webserver*<br />
 **NodeMCU_Webclient_TU21DF** : *NodeMCU read HTU21DF sensor and send data to Webserver*<br />
