@@ -3,6 +3,7 @@
 ## examples
 **BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
 **DHT22** : *DHT22 is humidity and temperature sensor (one-wire)*<br />
+**DS18B20** : *DS18B20 is a temperature sensor*<br />
 **GSR** : *GSR is a galvanic skin response sensor (Analog)*<br />
 **HC-SR04** : *SR04 is an ultrasonic ranger (GPIO)*<br />
 **HC05** : *use Software UART to read/write HC05 Bluetooth serial*<br />
