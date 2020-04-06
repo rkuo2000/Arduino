@@ -11,6 +11,8 @@
 **HMC5883L** : *HMC5883 is a magnetometer / electronic compass (I2C)*<br />
 **HTU21DF** : *HTU21DF is humidity and temperature sensor (I2C)*<br />
 **MLX90614** : *MLX90614 infrared temperature sensor (I2C)*<br />
+**MLX90614_OLED** : *Forehead Thermometer using MLX90614 + 0.91" OLED (I2C)*<br />
+**OLED** : *0.91" OLED SSD1306 (I2C)*<br />
 **PM5003** : *use Software UART to read PM5003 air quality sensor*<br />
 **VL53L0X** : *VL53L0X infrared ranger ~1 meter(I2C)*<br />
 **VL53L1X** : *VL53L1X infrared ranger ~2 meters(I2C)*<br />
