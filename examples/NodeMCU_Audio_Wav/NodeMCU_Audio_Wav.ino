@@ -1,6 +1,9 @@
 //
 // NodeMCU play wave from PROGMEM
 //
+// To convert .wav to .h:
+// xxd -i cat_meow.wav cat_meow.h
+//
 // NodeMCU connections:
 // Vin (5V)      to Speaker+
 //      Speaker- to 2N3904-Collector          
