@@ -1,5 +1,6 @@
 # Arduino sample codes
-
+## Demo
+![](./assets/MPU9250_DMP_Teapot.JPG)
 ## examples
 **BMP085** : *BMP085 is an atomphere pressure sensor (I2C)*<br />
 **DHT22** : *DHT22 is humidity and temperature sensor*<br />
