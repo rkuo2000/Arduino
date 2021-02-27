@@ -37,7 +37,6 @@
 **ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
 **ESP32_ROS** : *ESP32 ROS serial*<br />
 **ESP32_WiFi_Radio** : *ESP32 WiFi Radio (using MAX998357) *<br />
-
 </br>
 **NodeMCU_Audio_Wav** : *NodeMCU play audio .wav file*<br />
 **NodeMCU_NTP_RTC** : *NodeMCU Real-Time Clock reading Network Time Server*<br />
