@@ -28,15 +28,16 @@
 **MPU9250_DMP_Teapot** : *MPU9250 DMP, support output MPUTeapot packet*<br />
 *(MPUTeapot.pde will render a 3D object to show AHRS in Processing)*<br />
 </br>
+**ESP32CAM_CamWebServer** : *ESP32-CAM Camera Web Server*<br />
+**ESP32_ADC** : *ESP32 ADC accuracy improvement function*<br />
 **ESP32_BLE_Gamepad** : *ESP32 BLE Gamepad test*<br />
-**ESP32_I2S_MEMS** : *ESP32 I2S MEMS microphone (using INMP441)*<br />
-
+**ESP32_DAC_Audio** : *ESP32 DAC Audio output*<br />
+**ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
 **ESP32_MPU6050_DMP_Teapot** : *ESP32 MPU6050 DMP Teapot*<br />
 **ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
-**ESP32_ROS** : *ESP32 ROS*<br />
-
+**ESP32_ROS** : *ESP32 ROS serial*<br />
 **ESP32_WiFi_Radio** : *ESP32 WiFi Radio (using MAX998357) *<br />
-**ESP32CAM_CamWebServer** : *ESP32-CAM Camera Web Server*<br />
+
 </br>
 **NodeMCU_Audio_Wav** : *NodeMCU play audio .wav file*<br />
 **NodeMCU_NTP_RTC** : *NodeMCU Real-Time Clock reading Network Time Server*<br />
