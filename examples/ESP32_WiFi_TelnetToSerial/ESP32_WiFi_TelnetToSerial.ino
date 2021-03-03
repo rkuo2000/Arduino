@@ -25,8 +25,8 @@ WiFiMulti wifiMulti;
 
 //how many clients should be able to telnet to this ESP32
 #define MAX_SRV_CLIENTS 1
-const char* ssid = "Kuo";
-const char* password = "0972211921";
+const char* ssid = "Your_SSID";
+const char* password = "Your_PASSWORD";
 
 WiFiServer server(23);
 WiFiClient serverClients[MAX_SRV_CLIENTS];
