@@ -33,6 +33,7 @@
 **ESP32_BLE_Gamepad** : *ESP32 BLE Gamepad test*<br />
 **ESP32_DAC_Audio** : *ESP32 DAC Audio output*<br />
 **ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
+**ESP32_Google_TTS** : *ESP32 Google TTS get speech url*<br />
 **ESP32_MPU6050_DMP_Teapot** : *ESP32 MPU6050 DMP Teapot*<br />
 **ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
 **ESP32_ROS** : *ESP32 ROS serial*<br />
