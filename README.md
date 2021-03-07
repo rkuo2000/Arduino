@@ -32,12 +32,20 @@
 **ESP32_ADC** : *ESP32 ADC accuracy improvement function*<br />
 **ESP32_BLE_Gamepad** : *ESP32 BLE Gamepad test*<br />
 **ESP32_DAC_Audio** : *ESP32 DAC Audio output*<br />
-**ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
+**ESP32_DAC_Audio_MultiSound** : *ESP32 DAC Audio output multiple .wav sound*<br />
 **ESP32_Google_TTS** : *ESP32 Google TTS get speech url*<br />
+**ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
 **ESP32_MPU6050_DMP_Teapot** : *ESP32 MPU6050 DMP Teapot*<br />
 **ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
 **ESP32_ROS** : *ESP32 ROS serial*<br />
-**ESP32_WiFi_Radio** : *ESP32 WiFi Radio (using MAX998357) *<br />
+**ESP32_TFlite_micro_speech** : *ESP32 TFlite micro speech*<br />
+**ESP32_Webclient_IoT_HTU21DF** : *ESP32 Webclient for IoT with HTU21DF*<br />
+**ESP32_Webserver_GPIO** : *ESP32 Webserver control two GPIO pins*<br />
+**ESP32_Webserver_IoT** : *ESP32 Webserver for IoT*<br />
+**ESP32_Webserver_Ngrok** : *ESP32 Webserver for ngrok TCP tunnelling*<br />
+**ESP32_WiFi_Radio** : *ESP32 WiFi Radio (using MAX998357)*<br />
+**ESP32_WiFi_TelnetToSerial** : *ESP32 WiFi Telnet to Serial port*<br />
+**EspCopter32** : *ESP32 Quadcopter*<br />
 </br>
 **NodeMCU_Audio_Wav** : *NodeMCU play audio .wav file*<br />
 **NodeMCU_NTP_RTC** : *NodeMCU Real-Time Clock reading Network Time Server*<br />
