@@ -11,8 +11,8 @@
 Preferences pref;
 Audio audio;
 
-String ssid =     "Kuo";
-String password = "0972211921";
+String ssid =     "YOUR_SSID";
+String password = "YOUR_PASSWORD";
 
 String stations[] ={
         "0n-80s.radionetz.de:8000/0n-70s.mp3",
