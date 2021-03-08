@@ -34,6 +34,8 @@
 **ESP32_DAC_Audio** : *ESP32 DAC Audio output*<br />
 **ESP32_DAC_Audio_MultiSound** : *ESP32 DAC Audio output multiple .wav sound*<br />
 **ESP32_Google_TTS** : *ESP32 Google TTS get speech url*<br />
+**ESP32_IRreceiver** : *ESP32 IR remote receiver*<br />
+**ESP32_IRsender** : *ESP32 IR remote sender*<br />
 **ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
 **ESP32_MPU6050_DMP_Teapot** : *ESP32 MPU6050 DMP Teapot*<br />
 **ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
