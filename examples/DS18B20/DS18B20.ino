@@ -2,7 +2,7 @@
 #include <DallasTemperature.h>
 
 // Connection
-#define ONE_WIRE_BUS 4 // NodeMCU: D4, NodeMCU-32S: 4 with 1K ohm pullup
+#define ONE_WIRE_BUS 22 // NodeMCU: D4, NodeMCU-32S: 22 with 1K ohm pullup
 
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
