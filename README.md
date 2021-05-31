@@ -37,8 +37,6 @@
 **ESP32_IRreceiver** : *ESP32 IR remote receiver*<br />
 **ESP32_IRsender** : *ESP32 IR remote sender*<br />
 **ESP32_I2S_MEMS** : *ESP32 I2S INMP441 MEMS microphone*<br />
-**ESP32_MPU6050_DMP_Teapot** : *ESP32 MPU6050 DMP Teapot*<br />
-**ESP32_MPU9250_DMP_Teapot** : *ESP32 MPU9250 DMP Teapot*<br />
 **ESP32_ROS** : *ESP32 ROS serial*<br />
 **ESP32_TFlite_micro_speech** : *ESP32 TFlite micro speech*<br />
 **ESP32_Webclient_IoT_HTU21DF** : *ESP32 Webclient for IoT with HTU21DF*<br />
