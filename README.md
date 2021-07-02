@@ -72,19 +72,15 @@
 **NodeMCU_thingspeak_DHT11** : *NodeMCU read DHT11 sensor data and upload to Thingspeak.com*<br />
 
 ## libraries (used by examples)
-**Adafruit-GFX-Library.zip** : *Graphics library for OLED/LCD display*<br />
-**Adafruit_HTU21DF.zip** : *HTU21DF Temperature & Humidity sensor library*<br />
-**Adafruit_SSD1306.zip** : *I2C OLED display library*<br />
-**Adafruit_Sensor.zip** : *Adafruit_Sensor.h for DHT11*<br />
-**DHT.zip** : *DHT Temperature and Humidity sensor library*<br />
-**ESP32-audioI2S.zip** : *ESP32 Audio I2S Library*<br />
+**AsynTCP-master.zip** : *ESP32 Async TCP Library*<br />
 **ESP32-BLE-Gamepad.zip** : *ESP32 BLE Gamepad Library*<br />
+**ESP32-audioI2S.zip** : *ESP32 Audio I2S Library*<br />
 **ESP8266Audio.zip** : *ESP8266 Audio library*<br />
 **ESP8266_Spiram.zip** : *ESP8266 SPI RAM library*<br />
-**HMC5883L.zip** : *HMC5883L magnetometer library*<br />
+**ESPAsynTCP-master.zip** : *ESP8266 Async TCP Library*<br />
+**ESPAsynWebServer.zip** : *ESP32/ESP8266 Async Web Server Library*<br />
 **IRremoteESP8266.zip** : *ESP8266 IR Remote library*<br />
 **MPU6050.zip**: *MPU6050 DMP library*<br />
 **MPU9250-DMP.zip** : * MPU9250 DMP library*<br />
-**PubSubClient-2.7.0.zip** : * MQTT client library*<br />
 **Time.zip** : *timer library*<br />
 **TimeAlarms-1.5.0.zip** : *timer alarm library*<br />
