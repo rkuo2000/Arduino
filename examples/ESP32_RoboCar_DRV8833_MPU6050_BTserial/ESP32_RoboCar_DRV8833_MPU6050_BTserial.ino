@@ -1,5 +1,4 @@
 // PWM to DRV8833 dual H-bridge motor driver, PWM freq. = 1000 Hz
-// I2C to VL53L0X InfraRed ranger
 // I2C to MPU6050 3-axis accelerometer & 3-axis gyroscope
 // BTserial to receive command or transmit data
 
