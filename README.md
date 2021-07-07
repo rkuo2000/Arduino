@@ -73,6 +73,7 @@
 
 ## libraries (used by examples)
 **AsynTCP-master.zip** : *ESP32 Async TCP Library*<br />
+**ESP32-A2DP.zip** : *ESP32 Bluetooth A2DP examples*<br />
 **ESP32-BLE-Gamepad.zip** : *ESP32 BLE Gamepad Library*<br />
 **ESP32-audioI2S.zip** : *ESP32 Audio I2S Library*<br />
 **ESP8266Audio.zip** : *ESP8266 Audio library*<br />
