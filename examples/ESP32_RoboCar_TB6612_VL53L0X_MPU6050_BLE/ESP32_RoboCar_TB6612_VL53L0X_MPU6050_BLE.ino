@@ -280,7 +280,7 @@ void loop() {
       case 'S': brake(motorR, motorL);
                 break;  
     }
-	BLE_RXflag = false;
+    BLE_RXflag = false;
   }
   
   // detect collision
