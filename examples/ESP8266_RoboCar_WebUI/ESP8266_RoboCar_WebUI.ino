@@ -1,7 +1,7 @@
 //
 // NodeMCU RoboCar with WebUI control
 //
-// To connect network SSID = ESP8266 (password = 1234567890)
+// To connect network SSID = your_ssid (password = your_passwd)
 // Then open browser at 192.168.4.1
 //
 #include <ESP8266WiFi.h>
