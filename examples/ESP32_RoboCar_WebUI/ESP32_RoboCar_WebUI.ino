@@ -6,9 +6,9 @@
 #include <ESP32MotorControl.h> 
 
 // DRV8833 pin connection
-#define IN1pin 18  
-#define IN2pin 5  
-#define IN3pin 23 
+#define IN1pin 16  
+#define IN2pin 17 
+#define IN3pin 18 
 #define IN4pin 19
 
 #define motorR 0
