@@ -30,7 +30,10 @@
  THE SOFTWARE.
  =========================================================
  */
-#include <Wire.h>
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include "MPU6050.h"
 
 ///////////////////////////////////   CONFIGURATION   /////////////////////////////
