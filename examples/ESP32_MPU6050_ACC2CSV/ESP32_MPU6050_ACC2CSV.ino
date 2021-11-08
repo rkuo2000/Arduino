@@ -4,7 +4,10 @@
 // I2C to MPU6050 (3-axis accelerometer & 3-axis gyroscope)
 
 #include <WebSerial.h>
-#include <Wire.h>
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include <MPU6050_6Axis_MotionApps20.h>
 
 MPU6050 imu;
