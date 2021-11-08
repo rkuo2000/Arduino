@@ -13,9 +13,11 @@
  */
  
 #include "Kalman.h" // Source: https://github.com/TKJElectronics/KalmanFilter
-#include "I2Cdev.h"
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include "MPU6050.h"
-#include <Wire.h>
 // nodeMCU I2C default SCL : D1, SDA : D2
 //#define sda 14 // NodeMCU pin D5
 //#define scl 12 // NodeMCU pin D6
