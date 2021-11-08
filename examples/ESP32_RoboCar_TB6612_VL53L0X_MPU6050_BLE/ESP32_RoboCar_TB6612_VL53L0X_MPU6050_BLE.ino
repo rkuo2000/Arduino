@@ -3,11 +3,14 @@
 // I2C to MPU6050 3-axis accelerometer & 3-axis gyroscope
 // BLE to receive/transmit data with smartphone app BLE2RC
 
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include <BLE2902.h>
-#include <Wire.h>
 #include <VL53L0X.h>
 #include "ESP32_TB6612.h"
 #include <MPU6050_6Axis_MotionApps20.h>
