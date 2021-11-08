@@ -3,8 +3,11 @@
 // I2C to MPU6050 3-axis accelerometer & 3-axis gyroscope
 // BTserial to receive command or transmit data to smartphone/win10 PC
 
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include <BluetoothSerial.h>
-#include <Wire.h>
 #include <VL53L0X.h>
 #include <ESP32MotorControl.h>
 #include <MPU6050_6Axis_MotionApps20.h>
