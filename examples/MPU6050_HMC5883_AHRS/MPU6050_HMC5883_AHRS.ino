@@ -28,7 +28,9 @@
  We are also using the 400 kHz fast I2C mode by setting the TWI_FREQ  to 400000L /twi.h utility file.
  */
 #include "I2Cdev.h" 
-#include <Wire.h>
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include <SoftwareSerial.h>
 
 // set Software Serial pins to output Teapot packet
