@@ -3,7 +3,10 @@
 #include <HardwareSerial.h>
 HardwareSerial hwSer(1);  // UART1 (TX1, RX1)
 
-#include <Wire.h>
+#include "I2Cdev.h" 
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include "MPU6050_6Axis_MotionApps20.h"
 //#include "MPU6050.h" // not necessary if using MotionApps include file
 
