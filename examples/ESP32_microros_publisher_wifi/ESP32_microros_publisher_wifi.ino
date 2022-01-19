@@ -18,7 +18,7 @@ rclc_support_t support;
 rcl_allocator_t allocator;
 rcl_node_t node;
 
-#define LED_PIN 2 #for ESP32
+#define LED_PIN 2 //for ESP32
 
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){error_loop();}}
 #define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){}}
