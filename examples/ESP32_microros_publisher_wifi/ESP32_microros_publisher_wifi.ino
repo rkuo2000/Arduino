@@ -68,7 +68,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.print("rrcl_publish..."); 
+    Serial.print("rclc_publish..."); 
     Serial.println(msg.data);
     RCSOFTCHECK(rcl_publish(&publisher, &msg, NULL));
     msg.data++;
