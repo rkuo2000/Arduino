@@ -39,7 +39,7 @@ void subscription_callback(const void * msgin)
 
 void setup() {
   Serial.begin(115200);
-  set_microros_wifi_transports("CBN-42738-2.4G", "0972211921", "192.168.0.16", 8888);
+  set_microros_wifi_transports("Kuo", "0972211921", "192.168.1.7", 8888);
   
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, HIGH);  
