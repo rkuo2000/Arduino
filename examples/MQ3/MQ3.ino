@@ -8,7 +8,7 @@
 unsigned long initTime;
 
 void setup() {
-  Serial.begin(115200);  
+  Serial.begin(9600);  
   analogSetPinAttenuation(ADC_ch,ADC_11db);
   adcAttachPin(ADC_ch);
 //  adcStart(ADC_ch);
