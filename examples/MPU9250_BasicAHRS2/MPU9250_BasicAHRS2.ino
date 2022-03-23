@@ -248,10 +248,10 @@ bool newMagData = false;
 //int myLed = 13;
 int myLed = D0; // Set up pin D0 led for toggling (nodeMCU)
 
-uint16_t Pcal[8];         // calibration constants from MS5637 PROM registers
-unsigned char nCRC;       // calculated check sum to ensure PROM integrity
-uint32_t MS5637_D1 = 0, MS5637_D2 = 0;  // raw MS5637 pressure and temperature data
-double dT, OFFSET, SENS, T2, OFFSET2, SENS2;  // First order and second order corrections for raw S5637 temperature and pressure data
+//uint16_t Pcal[8];         // calibration constants from MS5637 PROM registers
+//unsigned char nCRC;       // calculated check sum to ensure PROM integrity
+//uint32_t MS5637_D1 = 0, MS5637_D2 = 0;  // raw MS5637 pressure and temperature data
+//double dT, OFFSET, SENS, T2, OFFSET2, SENS2;  // First order and second order corrections for raw S5637 temperature and pressure data
 
 int16_t MPU9250Data[7]; // used to read all 14 bytes at once from the MPU9250 accel/gyro
 int16_t accelCount[3];  // Stores the 16-bit signed accelerometer sensor output
