@@ -34,10 +34,10 @@ void setup() {
 
     String portName = Serial.list()[0];
     //String portName = "COM4";
-    //String portName = "/dev/ttyUSB1"; // for Linux	
+    //String portName = "/dev/ttyUSB0"; // for Linux	
     println("connect to ",portName);
 
-    port = new Serial(this, portName, 115200);
+    port = new Serial(this, portName, 9600);
     
     //port.write('r'); // send a character to trigger MPU6050
 }
