@@ -76,7 +76,7 @@ void setup() {
     println(portName);
     
     // open the serial port
-    port = new Serial(this, portName, 115200);
+    port = new Serial(this, portName, 9600);
     
     // send single character to trigger DMP init/start
     // (expected by MPU6050_DMP6 example Arduino sketch)
