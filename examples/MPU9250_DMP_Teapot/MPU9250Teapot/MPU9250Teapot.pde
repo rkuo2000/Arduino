@@ -66,17 +66,15 @@ void setup() {
   
     // display serial port list for debugging/clarity
     println(Serial.list());
-
-    // get the first available port (use EITHER this OR the specific port code below)
-    //String portName = "/dev/ttyUSB1";
     
     // get a specific serial port (use EITHER this OR the first-available code above)
-    //String portName = "COM4";
+    //String portName = "COM4";         // for Windows
+    //String portName = "/dev/ttyUSB0"; // for Linux
     String portName = Serial.list()[0]; // may need to change it if your com port is at [0]
     println(portName);
     
     // open the serial port
-    port = new Serial(this, portName, 115200);
+    port = new Serial(this, portName, 9600);
     
     // send single character to trigger DMP init/start
     // (expected by MPU6050_DMP6 example Arduino sketch)
