@@ -1,8 +1,3 @@
-
-// set Hardware Serial pins to output Teapot packet
-#include <HardwareSerial.h>
-HardwareSerial hwSer(1);
-
 #include <SparkFunMPU9250-DMP.h>
 #include "Wire.h"
 MPU9250_DMP imu;
@@ -39,8 +34,7 @@ uint8_t teapotPacket[22] = { '$', 0x02, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0x00
 
 void setup() 
 {
-  Serial.begin(115200);
-  hwSer.begin(115200);  // soft Serial for sample rate >10
+  Serial.begin(9600);
   Wire.begin();
 
   // Call imu.begin() to verify communication and initialize
@@ -195,8 +189,7 @@ void loop()
       teapotPacket[15]= (imu.qz >>16) & 0x000000ff;
       teapotPacket[16]= (imu.qz >>8 ) & 0x000000ff;
       teapotPacket[17]=  imu.qz       & 0x000000ff;  
-      if (sampleRate >10) hwSer.write(teapotPacket, 22);
-      else                Serial.write(teapotPacket, 22);      
+      Serial.write(teapotPacket, 22);      
       teapotPacket[19]++; // packetCount, loops at 0xFF on purpose
       #endif  
     }
