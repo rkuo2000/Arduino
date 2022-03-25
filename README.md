@@ -82,7 +82,6 @@
 **ESPAsynWebServer.zip** : *ESP32/ESP8266 Async Web Server Library*<br />
 **IRremoteESP8266.zip** : *ESP8266 IR Remote library*<br />
 **MPU6050.zip**: *MPU6050 DMP library*<br />
-**MPU9250-DMP.zip** : *MPU9250 DMP library*<br />
-**SparkFun_TB6612FNG_Arduino_Library.zip** : *TB6612FNG driver Library*<br >
+**SparkFun_MPU9250-DMP.zip** : *SparkFun MPU9250 DMP library*<br />
 **Time.zip** : *timer library*<br />
 **TimeAlarms-1.5.0.zip** : *timer alarm library*<br />
