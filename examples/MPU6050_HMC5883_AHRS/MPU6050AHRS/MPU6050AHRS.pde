@@ -1,5 +1,5 @@
 //
-// Processign 3.5.4 + toxi library
+// Processign 4.0b7 to add Toxi library
 //
 import processing.serial.*;
 import processing.opengl.*;
