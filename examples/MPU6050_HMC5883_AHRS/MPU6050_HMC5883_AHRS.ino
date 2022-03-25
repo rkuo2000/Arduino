@@ -31,12 +31,6 @@
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
     #include "Wire.h"
 #endif
-#include <SoftwareSerial.h>
-
-// set Software Serial pins to output Teapot packet
-#define RX_PIN D3 // connect to TXD of module
-#define TX_PIN D4 // connect to RXD of module (logic level 3.3v!)
-SoftwareSerial swSer(RX_PIN, TX_PIN);
 
 // Define registers per MPU6050, Register Map and Descriptions, Rev 4.2, 08/19/2013 6 DOF Motion sensor fusion device
 // Invensense Inc., www.invensense.com
@@ -260,8 +254,7 @@ uint8_t teapotPacket[14] = { '$', 0x02, 0,0, 0,0, 0,0, 0,0, 0x00, 0x00, '\r', '\
 
 void setup()
 {
-  Serial.begin(115200);
-  swSer.begin(115200); 
+  Serial.begin(9600);
   
   Wire.begin();
         
@@ -410,7 +403,6 @@ void loop()
     yaw   -= 13.8; // Declination at Danville, California is 13 degrees 48 minutes and 47 seconds on 2014-04-04
     roll  *= 180.0f / PI;
 
-    //Serial.print("Yaw, Pitch, Roll: ");
     Serial.print(yaw, 2);
     Serial.print(", ");
     Serial.print(pitch, 2);
@@ -428,7 +420,7 @@ void loop()
     teapotPacket[7] = int(q[2] * 16384) & 0x00ff;
     teapotPacket[8] = int(q[3] * 16384) >> 8;
     teapotPacket[9] = int(q[3] * 16384) & 0x00ff;
-    swSer.write(teapotPacket, 14);
+    Serial.write(teapotPacket, 14);
     teapotPacket[11]++; // packetCount, loops at 0xFF on purpose
     #endif
 //    Serial.print("average rate = "); Serial.print(1.0f/deltat, 2); Serial.println(" Hz");
