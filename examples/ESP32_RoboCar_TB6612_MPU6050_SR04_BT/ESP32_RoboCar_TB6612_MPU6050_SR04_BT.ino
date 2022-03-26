@@ -106,7 +106,7 @@ void readIMU()
 
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin("ESP32_BT");
+  SerialBT.begin("RoboCar_BT");
   Wire.begin();
 
   // initialize IMU
