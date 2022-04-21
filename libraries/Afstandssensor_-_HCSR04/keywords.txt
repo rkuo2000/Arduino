@@ -1,3 +1,0 @@
-Afstandssensor	KEYWORD1
-afstandCm	KEYWORD2
-AfstandsSensor KEYWORD3
