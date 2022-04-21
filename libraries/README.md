@@ -40,7 +40,7 @@
 * VL53L0X (1.3.1)
 * WebSerial (1.3.0)
 * Yfrobot Motor Driver Library (0.0.5)
-* 
+
 ## Sketch>Include Library>Add .ZIP Library... 
 * https://github.com/adafruit/Adafruit-MLX90614-Library
 * https://github.com/sandeepmistry/arduino-CAN
