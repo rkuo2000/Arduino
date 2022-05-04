@@ -30,6 +30,6 @@ void setup() {
 void loop() {
   for (pos=0; pos < 180; pos++) { // turn from degree 0 to 180
     myservo.write(pos);    // tell servo to go to position in variable 'pos'
-    delay(15);
+    delay(100);
   }
 }
