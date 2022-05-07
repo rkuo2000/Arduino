@@ -2,8 +2,8 @@
 // Access ESP32 Web server from anywhere in the world
 //
 // ESP32 run this webserver example
-// PC run ngrok 
-// ngrok tcp 192.168.1.12:80 --authtoken Your_Tunnel_Authtoken
+// PC run CMD.exe (Command Prompt)
+// C:\Users\rkuo> ngrok tcp 192.168.1.12:80 --authtoken Your_Tunnel_Authtoken
 
 #include <WiFi.h>
 
