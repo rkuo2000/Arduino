@@ -1,6 +1,6 @@
 // SG90 specification:
 // PWM Freq.: 50Hz
-// PWM Range: 500 to 2400 us
+// PWM Range: 1000 to 2000 us
 // Speed: 60 degrees in 0.12s
 
 #include <ESP32Servo.h>
@@ -24,7 +24,7 @@ void setup() {
 	ESP32PWM::allocateTimer(2);
 	ESP32PWM::allocateTimer(3);
 	myservo.setPeriodHertz(50);    // standard 50 hz servo
-	myservo.attach(servoPin, 500, 2400); // 500 to 2400 us
+	myservo.attach(servoPin, 1000, 2000); // 1000 to 2000 us
 }
 
 void loop() {
