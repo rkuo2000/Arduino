@@ -2,8 +2,8 @@
 #include <WiFiUdp.h>
 #include <coap-simple.h>
 
-const char* ssid     = "CBN-42738-2.4G";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 
 WiFiUDP udp;
 Coap coap(udp);
