@@ -9,8 +9,8 @@
 #include <coap-simple.h>
 #define ledPin 2
 
-const char* ssid     = "CBN-42738-2.4G";
-const char* password = "0972211921";
+const char* ssid     = "Your_SSID";
+const char* password = "Your_Password";
 
 // CoAP client response callback
 void callback_response(CoapPacket &packet, IPAddress ip, int port);
