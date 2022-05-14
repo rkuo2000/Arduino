@@ -3,7 +3,7 @@
 //
 // ESP32 run this webserver example
 // PC run CMD.exe (Command Prompt)
-// C:\Users\rkuo> ngrok tcp 192.168.1.12:80 --authtoken Your_Tunnel_Authtoken
+// C:\Users\rkuo> ngrok tcp 192.168.1.12:80 --authtoken Your_Ngrok_Authtoken
 
 #include <WiFi.h>
 
