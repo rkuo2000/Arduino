@@ -43,6 +43,7 @@
 
 ## Sketch>Include Library>Add .ZIP Library... 
 * https://github.com/adafruit/Adafruit-MLX90614-Library
+* https://github.com/T-vK/ESP32-BLE-Mouse
 * https://github.com/sandeepmistry/arduino-CAN
 * https://github.com/kosme/arduinoFFT
 * https://github.com/aed3/PS4-esp32
