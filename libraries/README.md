@@ -1,4 +1,8 @@
-# Import Libraries
+# Libraries
+* [Adafruit MLX90614-Library](https://github.com/adafruit/Adafruit-MLX90614-Library)
+* [SparkFun MPU9250 DMP](https://github.com/sparkfun/SparkFun_MPU-9250-DMP_Arduino_Library)
+* [ESP32 BLE Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
+* [PS4 ESP32](https://github.com/aed3/PS4-esp32)
 
 ## Tools>Manage Libraries>
 * Adafruit BMP085 Library (1.2.1)
@@ -42,12 +46,8 @@
 * Yfrobot Motor Driver Library (0.0.5)
 
 ## Sketch>Include Library>Add .ZIP Library... 
-* https://github.com/adafruit/Adafruit-MLX90614-Library
-* https://github.com/T-vK/ESP32-BLE-Mouse
 * https://github.com/sandeepmistry/arduino-CAN
 * https://github.com/kosme/arduinoFFT
-* https://github.com/aed3/PS4-esp32
 * https://github.com/micro-ROS/micro_ros_arduino
-* https://github.com/sparkfun/SparkFun_MPU-9250-DMP_Arduino_Library
 * [XT_DAC_Audio 4_2_1Download](https://www.xtronical.com/wp-content/uploads/2019/10/XT_DAC_Audio-4_2_1.zip)
 * https://github.com/YDLIDAR/ydlidar_arduino
