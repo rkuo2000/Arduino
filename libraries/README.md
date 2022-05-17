@@ -1,8 +1,8 @@
 # Libraries
-* [Adafruit MLX90614-Library](https://github.com/adafruit/Adafruit-MLX90614-Library)
+* [Adafruit-MLX90614](https://github.com/adafruit/Adafruit-MLX90614-Library)
 * [SparkFun MPU9250 DMP](https://github.com/sparkfun/SparkFun_MPU-9250-DMP_Arduino_Library)
 * [ESP32 BLE Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
-* [PS4 ESP32](https://github.com/aed3/PS4-esp32)
+* [PS4-ESP32](https://github.com/aed3/PS4-esp32)
 
 ## Tools>Manage Libraries>
 * Adafruit BMP085 Library (1.2.1)
