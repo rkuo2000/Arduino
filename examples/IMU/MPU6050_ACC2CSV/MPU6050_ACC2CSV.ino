@@ -16,10 +16,10 @@ float offsetX=0;
 float offsetY=0;
 float offsetZ=0;
 
-#define sampleTime 20 // 20ms = 50Hz
+#define sampleTime 50 // 50ms = 20Hz
 #define periodTime 1500 // 1500ms
 long loopTime, lastTime;
-int samples = periodTime / sampleTime; // 1500/20 = 75 samples
+int samples = periodTime / sampleTime; // 1500/50 = 30 samples
 int counts;
 bool sampleEn = false;
 
