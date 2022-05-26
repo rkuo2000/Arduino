@@ -94,7 +94,7 @@ void setup() {
     digitalWrite(LED_BUILTIN, HIGH);
     delay(200);   
     getAcc();
-    if (abs(ax)>0.1) sampleEn=true;
+    if (abs(az)>0.1) sampleEn=true;
     digitalWrite(LED_BUILTIN, LOW);
     delay(200);      
   }
