@@ -51,3 +51,5 @@
 * https://github.com/micro-ROS/micro_ros_arduino
 * [XT_DAC_Audio 4_2_1Download](https://www.xtronical.com/wp-content/uploads/2019/10/XT_DAC_Audio-4_2_1.zip)
 * https://github.com/YDLIDAR/ydlidar_arduino
+* https://github.com/me-no-dev/AsyncTCP
+* https://github.com/me-no-dev/ESPAsyncWebServer
