@@ -185,7 +185,7 @@ void setup() {
 void loop() {
   // if DMP initialization failed, don't try to do anything
   if (!dmpReady) return; 
-  if ((millis() - lastTime)> accDelay){
+  if ((millis() - lastTime)>= accDelay){
     //Serial.println(millis()-lastTime);
     lastTime = millis();    
   
