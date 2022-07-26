@@ -16,6 +16,7 @@
 * Adafruit PWM Servo Driver Library (2.4.0)
 * Adafruuit SSD1306 (2.5.3)
 * Afstandssenor - HCSR04 (1.0.2)
+* [AsyncElegantOTA](https://github.com/ayushsharma82/AsyncElegantOTA) (2.2.7)
 * AsyncTCP_SSL (1.2.0)
 * bitluni ESP32Lib (0.3.4)
 * **CoAP simple library (1.3.24)**
