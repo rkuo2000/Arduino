@@ -1,5 +1,7 @@
 # Libraries
 * [Adafruit-MLX90614](https://github.com/adafruit/Adafruit-MLX90614-Library)
+* [AsyncTCP](https://github.com/me-no-dev/AsyncTCP)
+* [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer)
 * [ESP32-BLE-Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
 * [PS4-ESP32](https://github.com/aed3/PS4-esp32)
 * [SparkFun MPU9250 DMP](https://github.com/sparkfun/SparkFun_MPU-9250-DMP_Arduino_Library)
