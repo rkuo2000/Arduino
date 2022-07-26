@@ -11,7 +11,7 @@
 7. 18650 x2 (LiPo battery, 3.7V*2=7.4V)
 
 ## Software
-ESP32_MPU6050_DMP6   : Yaw, Pitch, Roll
-ESP32_PCA9685_SG90x1 : sweep test a SG90 on connector 15
-ESP32_PCA9685_SG90x4 : sweep test four SG90 on connector 3,7,11,15
-ESP32_PCA9685_OTA_WebServer: OTA WebServer to set pos of SG90s
+* ESP32_MPU6050_DMP6   : Yaw, Pitch, Roll
+* ESP32_PCA9685_SG90x1 : sweep test a SG90 on connector 15
+* ESP32_PCA9685_SG90x4 : sweep test four SG90 on connector 3,7,11,15
+* ESP32_PCA9685_OTA_WebServer: OTA WebServer to set pos of SG90s
