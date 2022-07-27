@@ -14,4 +14,4 @@
 * ESP32_MPU6050_DMP6   : get Yaw, Pitch, Roll
 * ESP32_PCA9685_SG90x1 : sweep test a SG90 on connector 15
 * ESP32_PCA9685_SG90x4 : sweep test four SG90 on connector 3,7,11,15
-* ESP32_PCA9685_OTA_WebServer: OTA WebServer to set pos of SG90s
+* ESP32_PCA9685_OTA    : OTA WebServer to set pos of SG90 x12
