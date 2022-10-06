@@ -32,7 +32,7 @@
 * **FabGL (1.0.6)**
 * **IRremote (3.6.1)**
 * MFRC522 (1.4.10)
-* MPU6050 (0.5.0)
+* [MPU6050 v0.6.0](https://www.arduino.cc/reference/en/libraries/mpu6050/)
 * OneWire (2.3.6)
 * PCA9685 (3.0.1) *16-channel 12-bit PWM controller*
 * **PWMMotorControl (1.9.0)**
