@@ -11,8 +11,8 @@
 #define DHTPIN 23
 DHT dht(DHTPIN, DHTTYPE);
 
-#define WLAN_SSID "CBN-42738-2.4G"
-#define WLAN_PASS "0972211921"
+#define WLAN_SSID "CBN-42738-2.4G" // your SSID
+#define WLAN_PASS "0972211921"     // your password
 
 /************************* Adafruit.io Setup *********************************/
 #define AIO_SERVER      "io.adafruit.com"
@@ -22,8 +22,8 @@ DHT dht(DHTPIN, DHTTYPE);
 
 // Adafruit IO Account Configuration
 // (to obtain these values, visit https://io.adafruit.com and click on Active Key)
-#define AIO_USERNAME "rkuo2000"
-#define AIO_KEY      "aio_aCZf94wM6KFV8DLhrNjJcIDnSpZ1"
+#define AIO_USERNAME "rkuo2000" // your username 
+#define AIO_KEY      "aio_xxxf94wM6KFV8DLhrNjJcIDnSpZ1" // your AIO key
 
 /************ Global State (you don't need to change this!) ******************/
 
