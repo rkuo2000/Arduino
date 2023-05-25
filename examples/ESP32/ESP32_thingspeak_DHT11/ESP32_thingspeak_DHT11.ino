@@ -4,12 +4,12 @@
 #define DHTPIN 23     // NodeMCU pin D6 connected to DHT11 pin Data
 DHT dht(DHTPIN, DHT11, 15);
 
-const char* ssid     = "RKUO";
-const char* password = "0972211921";
+const char* ssid     = "your_ssid";
+const char* password = "your_password";
 
 
 const char* host = "api.thingspeak.com";
-const char* thingspeak_key = "6BQ13YRF3BJ97VZR";
+const char* thingspeak_key = "your_Write_API_Key";
 
 void turnOff(int pin) {
   pinMode(pin, OUTPUT);
