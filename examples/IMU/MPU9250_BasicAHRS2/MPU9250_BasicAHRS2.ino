@@ -245,8 +245,8 @@ int intPin = 8;
 volatile bool newData = false;
 bool newMagData = false;
 */
-//int myLed = 13;
-int myLed = D0; // Set up pin D0 led for toggling (nodeMCU)
+
+int myLed = LED_BUILTIN;    // Set up builtin LED for toggling
 
 //uint16_t Pcal[8];         // calibration constants from MS5637 PROM registers
 //unsigned char nCRC;       // calculated check sum to ensure PROM integrity
