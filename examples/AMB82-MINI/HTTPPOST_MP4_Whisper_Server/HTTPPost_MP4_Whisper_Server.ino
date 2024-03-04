@@ -1,7 +1,8 @@
 /*
 Example guide:
 1. Audio file can be recorded by AduioRecord_MP4_SDcard.ino and stored in SD card
-
+   [AduioRecord_MP4_SDcard.ino](https://github.com/rkuo2000/Arduino/blob/master/examples/AMB82-MINI/AduioRecord_MP4_SDcard/AduioRecord_MP4_SDcard.ino)
+   
 2. Need to run whisper server on PC first : `python whisper_server.py`
    [whisper_server.py](https://github.com/ambiot/ambpro2_arduino/blob/dev/Arduino_package/hardware/libraries/Http/src/whisper_server.py)
    
