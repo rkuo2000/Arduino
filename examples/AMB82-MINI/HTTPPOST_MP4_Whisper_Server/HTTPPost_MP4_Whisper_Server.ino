@@ -1,8 +1,13 @@
 /*
 Example guide:
-1. Need to run whisper server on PC first : `python whisper_server.py`
-2. AMB82-mini running this code will
+1. Audio file can be recorded by AduioRecord_MP4_SDcard.ino and stored in SD card
+
+2. Need to run whisper server on PC first : `python whisper_server.py`
+   [whisper_server.py](https://github.com/ambiot/ambpro2_arduino/blob/dev/Arduino_package/hardware/libraries/Http/src/whisper_server.py)
+   
+3. AMB82-mini running this code will
    read audio file recorded in SD card, and HTTP POST to whisper server
+   (unplug SD card while uploading this code, insert SD card before start running this code)
 */
 
 #include <Arduino.h>
