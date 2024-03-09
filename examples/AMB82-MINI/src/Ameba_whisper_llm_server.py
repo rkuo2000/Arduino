@@ -14,9 +14,10 @@ model = whisper.load_model("base")
 import transformers
 from transformers import AutoModelForCausalLM , AutoTokenizer
 
-llm_model_name = "Q-bert/Mamba-130M"
-MambaLLM = AutoModelForCausalLM.from_pretrained(llm_model_name, trust_remote_code=True)
-tokenizer = AutoTokenizer.from_pretrained(llm_model_name)
+#llm_name = "Q-bert/Mamba-130M"
+llm_name = "MediaTek-Research/Breeze-7B-Base-v0.1"
+LLM = AutoModelForCausalLM.from_pretrained(llm_name, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(llm_name)
 
 app = Flask(__name__)
 
@@ -56,9 +57,9 @@ def audio():
         
         prompt = result["text"]
         input_ids = tokenizer.encode(prompt, return_tensors="pt")
-        output = MambaLLM.generate(input_ids, max_length=64, num_beams=5, no_repeat_ngram_size=2)
+        output = LLM.generate(input_ids, max_length=64, num_beams=5, no_repeat_ngram_size=2)
         generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-        print("Mamba: "+generated_text) 
+        print("LLM: "+generated_text) 
 
         return jsonify(generated_text)    
 
