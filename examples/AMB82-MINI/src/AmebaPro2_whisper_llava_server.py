@@ -56,7 +56,8 @@ async def post_data(data: Base64Data):
 
         # Whisper transcribe
         result = ASR.transcribe("output.mp4",fp16=False)
-        print("ASR: "+result["text"])
+        header1 = "ASR:"
+        print(header1+result["text"])
 
         # LLaVA (VLM)
         prompt = result["text"]
@@ -68,7 +69,8 @@ async def post_data(data: Base64Data):
         generated_text = processor.batch_decode(output, skip_special_tokens=True)[0]
         result = generated_text.split("ASSISTANT:")[-1]
         print(result)
-        return Response(result)
+        header1 = "ASR:"
+        print(header1+result["text"])
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
