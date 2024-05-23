@@ -97,7 +97,8 @@ async def post_audio(data: Base64Data):
         generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
         header2="LLM: "
         print(header2+generated_text) 
-        return Response(generated_text)
+        #return Response(header2+generated_text)
+        return Response(header1+prompt+"\n"+header2+generated_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
