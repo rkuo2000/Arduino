@@ -113,7 +113,7 @@ async def post_audio(data: Base64Data):
         # Query-Engine
         prompt = result["text"]
         response = query_engine.query(prompt)
-        header2 = "LLaVA: "
+        header2 = "RAG: "
         result2 = response.response
         print(header2+result2)
         return Response(header1+result1+"\n"+header2+result2)
