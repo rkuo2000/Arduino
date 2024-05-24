@@ -1,8 +1,16 @@
 /*
  Example guide:
- src/AmebaPro2_whisper_llm_server.py running on PC
+ 1. To run Server on PC:
+    cd ~/Arduino/examples/AMB82-MINI/src
+    python AmebaPro2_Whisper_LLM_server.py
+    
+ 2. To run client on AMB82-mini:   
+    upload this code to AMB82-mini, and hit reset to start the client on AMB82-mini,
+    press button for 2 seconds to speak to AMB82-mini
+    AMB82-mini will record voice to MP4 file on SDcard, 
+    then send to AmebaPro2_Whisper_LLM_server
 */
-
+#include "string.h"
 #include "StreamIO.h"
 #include "AudioStream.h"
 #include "AudioEncoder.h"
@@ -13,7 +21,6 @@
 #include "ArduinoJson.h"
 #include "SPI.h"
 #include "AmebaILI9341.h"
-#include "AmebaLogo.h"
 
 // For all supported boards (AMB` 21/AMB22, AMB23, BW16/BW16-TypeC, AW-CU488_ThingPlus),
 // Select 2 GPIO pins connect to TFT_RESET and TFT_DC. And default SPI_SS/SPI1_SS connect to TFT_CS.
@@ -27,11 +34,11 @@ AmebaILI9341 tft = AmebaILI9341(TFT_CS, TFT_DC, TFT_RESET);
 
 #define FILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "wifi_ssid";    // your network SSID (name)
-char pass[] = "wifi_passwd";        // your network password
+char ssid[] = "HITRON-DF90-5G";              // your network SSID (Home WiFi or Smartphone Hotspot)
+char pass[] = "0972211921";        // your network password
 int status = WL_IDLE_STATUS;
 
-char server[] = "123.195.32.57";    // your server IP running HTTP server on PC
+char server[] = "123.195.32.57";   // the server IP running HTTP server on PC
 #define PORT 5000
 
 AmebaFatFS fs;
@@ -61,6 +68,14 @@ bool buttonPressedFor2Seconds = false;    // flag to indicate if button is press
 int recordingstate = -1;
 int previousRecordingState = -1;
 
+// Receiving Buffer
+#define OFFSET 94              // skip HTTP response headers
+#define PAGE_CHAR_LENGTH 26*15 // Font 2 = 26 characters per line, total 14 lines
+char textbuffer[26*15*3];      // 3 pages buffer 
+int  textcount = 0;
+int  skipcount = 0;
+int  displaycount =0;
+//int  pos=0; // for finding "LLM:"
 
 void setup()
 {
@@ -79,9 +94,9 @@ void setup()
     tft.clr();
     tft.setCursor(0, 0);
     tft.setForeground(ILI9341_WHITE);
-    tft.setFontSize(1);
-    tft.setRotation(1);
-    tft.println("TAIDE:");    
+    tft.setFontSize(2);
+    tft.setRotation(3);
+    tft.println("Portable ChatGPT - Llama3");
 
     // list files under root directory
     fs.begin();
@@ -162,13 +177,25 @@ void loop()
     }
 
     // Check if there are incoming bytes available from the server
+    textcount =0;    
+    skipcount =0;
     while (wifiClient.available()) {
         char c = wifiClient.read();
+        textbuffer[textcount] = c;
+        textcount++;
+        skipcount++;
         Serial.write(c);
-        tft.print(c);
+        if (skipcount>OFFSET) tft.print(c);
     }
+
+// finding indexOf LLM:     
+    // if (pos<=0) {
+    //     String s = String(textbuffer);
+    //     pos = s.indexOf("LLM:");
+    //     Serial.print("LLM indexOf = ");
+    //     erial.println(pos);
+    //  }
     previousRecordingState = recordingstate;
-    delay(10);
 }
 
 void encodeMP4andsendHttpPostRequest()
@@ -218,6 +245,10 @@ void encodeMP4andsendHttpPostRequest()
         wifiClient.print(jsonString);    // Send the Base64 encoded audio data directly
         
         Serial.println("Binary sent");
-        tft.println("Message sent to LLM server!");
+        tft.println("Voice sent to LLM server !");
+        tft.println("wait a moment for LLM.....");
     }
+    delay(1000);
+    tft.clr();
+    tft.setCursor(0,0);
 }
