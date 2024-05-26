@@ -1,5 +1,5 @@
 /*
-   L298 Test
+   L298 dual DC-Motors Driving Test
 */
 
 #define IN1_PIN     5 // IN1 pin 
