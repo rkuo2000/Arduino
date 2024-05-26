@@ -1,25 +1,22 @@
 /*
-
+   L298 Test
 */
 
-// DRV8833 dual DC-motor driver IC
-// nSLEEP pin (EEP) connect to Vcc (+5V), if connected to GND, then chip will enter low-power mode
-// nFAULT pin keep floating
-#define IN1_PIN     5 // in1 pin from one of the two DRV8833 H-bridge
-#define IN2_PIN     6 // in2 pin from one of the two DRV8833 H-bridge
-#define IN3_PIN     7 // in3 pin from one of the two DRV8833 H-bridge
-#define IN4_PIN     8 // in4 pin from one of the two DRV8833 H-bridge
+#define IN1_PIN     5 // IN1 pin 
+#define IN2_PIN     6 // IN2 pin 
+#define IN3_PIN     7 // IN3 pin 
+#define IN4_PIN     8 // IN4 pin 
 
 void setup()
 {
     Serial.begin(115200);
-
+    // set 4 GPIOs to OUTPUT mode
     pinMode(IN1_PIN, OUTPUT);
     pinMode(IN2_PIN, OUTPUT);
     pinMode(IN3_PIN, OUTPUT);
     pinMode(IN4_PIN, OUTPUT);
 
-    Serial.println("L298 tester");
+    Serial.println("L298 test");
     Serial.println("--------------");
     Serial.print("Motor0: ");
     Serial.print("IN1 pin= "); Serial.print(IN1_PIN); Serial.print(",\t");
@@ -37,12 +34,12 @@ void setup()
     digitalWrite(IN4_PIN, LOW);
     delay(1000);
 
-    Serial.println("Motor0 Clockwise...");
+    Serial.println("Motor0 Rotating Clockwise...");
     digitalWrite(IN1_PIN, HIGH); 
     digitalWrite(IN2_PIN, LOW);
     delay(1000);
 
-    Serial.println("Motor0 CounterClockwise...");
+    Serial.println("Motor0 Rotating CounterClockwise...");
     digitalWrite(IN1_PIN, LOW); 
     digitalWrite(IN2_PIN, HIGH);
     delay(1000);
@@ -52,12 +49,12 @@ void setup()
     digitalWrite(IN2_PIN, LOW);
     delay(1000);
 
-    Serial.println("Motor1 Clockwise...");
+    Serial.println("Motor1 Rotating Clockwise...");
     digitalWrite(IN3_PIN, HIGH); 
     digitalWrite(IN4_PIN, LOW);
     delay(1000);
 
-    Serial.println("Motor1 CounterClockwise...");
+    Serial.println("Motor1 Rotating CounterClockwise...");
     digitalWrite(IN3_PIN, LOW); 
     digitalWrite(IN4_PIN, HIGH);
     delay(1000);
@@ -66,6 +63,8 @@ void setup()
     digitalWrite(IN3_PIN, LOW); 
     digitalWrite(IN4_PIN, LOW);
     delay(1000);
+    
+    // To switch clockwise and counterclosewise control, switch wiring or switch definition
 }
 
 void loop()
