@@ -202,7 +202,7 @@ void encodeMP4andsendHttpPostRequest()
     serializeJson(doc,jsonString);
 
     if (wifiClient.connect(server, PORT)) {
-        wifiClient.println("POST /audio HTTP/1.1");
+        wifiClient.println("POST /imgau HTTP/1.1");
         wifiClient.println("Host: " + String(server));
         wifiClient.println("Content-Type: application/json");    // Use appropriate content type
         wifiClient.println("Content-Length: " + String(jsonString.length()));              // Specify the length of the content
