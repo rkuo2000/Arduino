@@ -48,8 +48,8 @@ AmebaILI9341 tft = AmebaILI9341(TFT_CS, TFT_DC, TFT_RESET);
 
 #define FILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "HITRON-DF90-5G";              // your network SSID (Home WiFi or Smartphone Hotspot)
-char pass[] = "0972211921";        // your network password
+char ssid[] = "Your_SSID";              // your network SSID (Home WiFi or Smartphone Hotspot)
+char pass[] = "Your_Password";        // your network password
 int status = WL_IDLE_STATUS;
 
 char server[] = "123.195.32.57";   // the server IP running HTTP server on PC
