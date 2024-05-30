@@ -15,51 +15,50 @@ void setup()
 {
     Serial.begin(115200);
     // set 4 GPIOs to OUTPUT mode
-    pinMode(AIN1_PIN, OUTPUT);
-    pinMode(AIN2_PIN, OUTPUT);
-    pinMode(BIN1_PIN, OUTPUT);
-    pinMode(BIN2_PIN, OUTPUT);
-	analogWrite(PWMA, 250);
-	analogWrite(PWMB, 250);
+    pinMode(AIN1, OUTPUT);
+    pinMode(AIN2, OUTPUT);
+    pinMode(BIN1, OUTPUT);
+    pinMode(BIN2, OUTPUT);
+    analogWrite(PWMA, 250);
+    analogWrite(PWMB, 250);
 	
     Serial.println("TB6612 GPIO test with dual DC-motors");
     Serial.println("-------------------------------------");
 
     Serial.println("Motor0 & 1 Stop...");
-    digitalWrite(AIN1_PIN, LOW); 
-    digitalWrite(AIN2_PIN, LOW);
-    digitalWrite(BIN1_PIN, LOW); 
-    digitalWrite(BIN2_PIN, LOW);
+    digitalWrite(AIN1, LOW); 
+    digitalWrite(AIN2, LOW);
+    digitalWrite(BIN1, LOW); 
+    digitalWrite(BIN2, LOW);
     delay(1000);
 
     Serial.println("Motor0 Rotating Clockwise...");
-    digitalWrite(AIN1_PIN, HIGH); 
-    digitalWrite(AIN2_PIN, LOW);
+    digitalWrite(AIN1, HIGH); 
+    digitalWrite(AIN2, LOW);
     delay(1000);
-
     Serial.println("Motor0 Rotating CounterClockwise...");
-    digitalWrite(AIN1_PIN, LOW); 
-    digitalWrite(AIN2_PIN, HIGH);
+    digitalWrite(AIN1, LOW); 
+    digitalWrite(AIN2, HIGH);
     delay(1000);
 
     Serial.println("Motor0 Stop...");
-    digitalWrite(AIN1_PIN, LOW); 
-    digitalWrite(AIN2_PIN, LOW);
+    digitalWrite(AIN1, LOW); 
+    digitalWrite(AIN2, LOW);
     delay(1000);
 
     Serial.println("Motor1 Rotating Clockwise...");
-    digitalWrite(BIN1_PIN, HIGH); 
-    digitalWrite(BIN2_PIN, LOW);
+    digitalWrite(BIN1, HIGH); 
+    digitalWrite(BIN2, LOW);
     delay(1000);
 
     Serial.println("Motor1 Rotating CounterClockwise...");
-    digitalWrite(BIN1_PIN, LOW); 
-    digitalWrite(BIN2_PIN, HIGH);
+    digitalWrite(BIN1, LOW); 
+    digitalWrite(BIN2, HIGH);
     delay(1000);
 
     Serial.println("Motor1 Stop...");
-    digitalWrite(BIN1_PIN, LOW); 
-    digitalWrite(BIN2_PIN, LOW);
+    digitalWrite(BIN1, LOW); 
+    digitalWrite(BIN2, LOW);
     delay(1000);
     
     // To switch clockwise and counterclosewise control, switch wiring or switch definition
