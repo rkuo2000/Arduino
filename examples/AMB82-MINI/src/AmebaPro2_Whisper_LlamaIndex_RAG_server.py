@@ -16,7 +16,7 @@ from transformers import BitsAndBytesConfig
 from llama_index.core import PromptTemplate
 from llama_index.llms.huggingface import HuggingFaceLLM
 
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from llama_index.embeddings.langchain import LangchainEmbedding
 from llama_index.core import ServiceContext, Document
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
@@ -113,7 +113,7 @@ async def post_audio(data: Base64Data):
         # Query-Engine
         prompt = result["text"]
         response = query_engine.query(prompt)
-        header2 = "RAG: "
+        header2 = "LLaVA: "
         result2 = response.response
         print(header2+result2)
         return Response(header1+result1+"\n"+header2+result2)
