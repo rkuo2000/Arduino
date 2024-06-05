@@ -1,6 +1,7 @@
 /*
  Example guide:
  src/AmebaPro2_whisper_Phi3_server.py running on PC
+ client sending audio to server for ASR result
 */
 
 #include "StreamIO.h"
@@ -14,8 +15,8 @@
 
 #define FILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "HITRON-DF90-5G";    // your network SSID (name)
-char pass[] = "0972211921";        // your network password
+char ssid[] = "Your_SSID";    // your network SSID (name)
+char pass[] = "Your_Password";        // your network password
 int status = WL_IDLE_STATUS;
 
 char server[] = "123.195.32.57";    // your server IP running HTTP server on PC
