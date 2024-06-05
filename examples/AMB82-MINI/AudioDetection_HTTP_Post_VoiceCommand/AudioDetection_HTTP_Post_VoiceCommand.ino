@@ -10,8 +10,8 @@
     python AmebaPro2_Whisper_Phi3_server.py
     
  2. run this client on AMB82-mini
-    say Hi to AMB82-mini first, wait for LED light up then speak voice-command to robot
-
+    say "Attention" to AMB82-mini first, wait for LED light up then speak voice-command to robot
+    ex. char COMMAND1[256] = "Please go to the kitch.";
 */
 
 #include "string.h"
@@ -38,8 +38,8 @@ int max_prob = 0;
 
 #define FILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "HITRON-DF90-5G";              // your network SSID (Home WiFi or Smartphone Hotspot)
-char pass[] = "0972211921";        // your network password
+char ssid[] = "Your_SSID";    // your network SSID (Home WiFi or Smartphone Hotspot)
+char pass[] = "Your_Password";        // your network password
 int status = WL_IDLE_STATUS;
 
 char server[] = "123.195.32.57";   // the server IP running HTTP server on PC
