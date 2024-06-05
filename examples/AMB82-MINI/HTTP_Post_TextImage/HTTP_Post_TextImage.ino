@@ -14,8 +14,8 @@
 #define CHANNEL       0
 #define AUDIOFILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "HITRON-DF90-5G";    // your network SSID (name)
-char pass[] = "0972211921";        // your network password
+char ssid[] = "Your_SSID";    // your network SSID (name)
+char pass[] = "Your_Password";        // your network password
 int status = WL_IDLE_STATUS;
 
 char server[] = "123.195.32.57";    // your server IP running HTTP server on PC
