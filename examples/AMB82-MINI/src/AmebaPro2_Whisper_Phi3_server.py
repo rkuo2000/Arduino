@@ -22,7 +22,7 @@ import torch
 
 model_id = "microsoft/Phi-3-vision-128k-instruct"
 
-VLM = AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda", trust_remote_code=True, torch_dtype="auto")
+model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda", trust_remote_code=True, torch_dtype="auto")
 
 processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
 
@@ -38,8 +38,12 @@ nest_asyncio.apply()
 class Base64audio(BaseModel):
     base64_string: str
 
-class Base64Data(BaseModel):
+class Base64AudioImage(BaseModel):
     audio_base64_string: str
+    image_base64_string: str
+
+class Base64TextImage(BaseModel):
+    text_base64_string: str
     image_base64_string: str
 
 app = FastAPI()
@@ -47,6 +51,22 @@ app = FastAPI()
 @app.get("/")
 def home():
     return Response("Hello World")
+
+@app.post("/asr")
+async def post_data(data: Base64audio):
+    try:
+        # Save the decoded audio data to a MP4 file
+        decoded_data = base64.b64decode(data.base64_string)
+        with open("speech.mp4", "wb") as f:
+            f.write(decoded_data)
+
+        # Whisper transcribe
+        result = ASR.transcribe("speech.mp4",fp16=False)
+        header1 = "ASR:"
+        print(header1+result["text"])
+        return Response(header1+result["text"])
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/audio")
 async def post_data(data: Base64audio):
@@ -62,11 +82,11 @@ async def post_data(data: Base64audio):
         print(header1+result["text"])
 
         # Phi3 (VLM)
-        prompt = result["text"] +" please give answer in a simple sentence"
+        prompt = result["text"]
         img = Image.open("output.jpg")
-        inst = ", please answer in a simple sentence"
+        inst = ", please answer in short"
         messages = [
-            {"role": "user", "content": "<|image_1|>\n"+prompt+inst}, # "What is shown in this image?"},
+            {"role": "user", "content": "<|image_1|>\n"+prompt+inst},
         ]
         prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = processor(prompt, [img], return_tensors="pt").to("cuda:0")
@@ -78,12 +98,11 @@ async def post_data(data: Base64audio):
         print(result)
         header2="Phi3:"
         return Response(header1+prompt+"\n"+header2+result)
-
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         
 @app.post("/imgau")
-async def post_data(data: Base64Data):
+async def post_data(data: Base64AudioImage):
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.audio_base64_string)
@@ -101,11 +120,39 @@ async def post_data(data: Base64Data):
         print(header1+result["text"])
 
         # Phi3 (VLM)
-        prompt = result["text"] +" please give answer in a simple sentence"
+        prompt = result["text"] 
         img = Image.open("output.jpg")
-        inst = ", please answer in a simple sentence"
         messages = [
-            {"role": "user", "content": "<|image_1|>\n"+prompt+inst}, # "What is shown in this image?"},
+            {"role": "user", "content": "<|image_1|>\n"+prompt}, 
+        ]
+        prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = processor(prompt, [img], return_tensors="pt").to("cuda:0")
+        generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) #max_new_tokens=200
+
+        # remove input tokens
+        outputs = generate_ids[:, inputs['input_ids'].shape[1]:]
+        result = processor.batch_decode(outputs, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+        print(result)
+        header2="Phi3:"
+        return Response("Text: "+prompt+"\n"+header2+result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/imgtxt")
+async def post_data(data: Base64TextImage):
+    try:
+        prompt = data.text_base64_string;
+        print(prompt);
+
+        # Save the decoded image data to a JPG file
+        decoded_data = base64.b64decode(data.image_base64_string)
+        with open("output.jpg", "wb") as f:
+            f.write(decoded_data)
+
+        # Phi3 (VLM)
+        img = Image.open("output.jpg")
+        messages = [
+            {"role": "user", "content": "<|image_1|>\n"+prompt},
         ]
         prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = processor(prompt, [img], return_tensors="pt").to("cuda:0")
@@ -119,7 +166,6 @@ async def post_data(data: Base64Data):
         return Response(header1+prompt+"\n"+header2+result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5000, log_level="info")
