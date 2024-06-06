@@ -12,6 +12,7 @@
  2. run this client on AMB82-mini
     say "Attention" to AMB82-mini first, wait for LED light up then speak voice-command to robot
     ex. char COMMAND1[256] = "Please go to the kitch.";
+
 */
 
 #include "string.h"
@@ -38,8 +39,8 @@ int max_prob = 0;
 
 #define FILENAME "TestRecordingAudioOnly.mp4"
 
-char ssid[] = "Your_SSID";    // your network SSID (Home WiFi or Smartphone Hotspot)
-char pass[] = "Your_Password";        // your network password
+char ssid[] = "HITRON-DF90-5G";              // your network SSID (Home WiFi or Smartphone Hotspot)
+char pass[] = "0972211921";        // your network password
 int status = WL_IDLE_STATUS;
 
 char server[] = "123.195.32.57";   // the server IP running HTTP server on PC
@@ -202,6 +203,7 @@ void loop()
         strcpy(command, textbuffer);
         Serial.println(command);
         textbuffer[0]=(char)0; // clear textbuffer
+        audioNN.begin();
     }
     if (strcmp(command,COMMAND1)>0) {
       Serial.println("VOICE COMMAND Matched !!!");
@@ -246,7 +248,8 @@ void ACPostProcess(std::vector<AudioClassificationResult> results)
         if (max_id==0 && max_prob>80 && !recordingstate) {
           digitalWrite(LED_BUILTIN, HIGH);
           mp4.begin();
-          Serial.println("Recording Audio...............");        
+          Serial.println("Recording Audio...............");
+          audioNN.end();
         }    
     }
     digitalWrite(LED_G, LOW);
