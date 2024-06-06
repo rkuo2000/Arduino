@@ -203,7 +203,13 @@ void loop()
         strcpy(command, textbuffer);
         Serial.println(command);
         textbuffer[0]=(char)0; // clear textbuffer
+
+        NNAudioClassification audioNN;
+        audioNN.configAudio(configA);
+        audioNN.setResultCallback(ACPostProcess);
+        audioNN.modelSelect(AUDIO_CLASSIFICATION, NA_MODEL, NA_MODEL, NA_MODEL, DEFAULT_YAMNET);          
         audioNN.begin();
+        Serial.println("audioNN.begin......");
     }
     if (strcmp(command,COMMAND1)>0) {
       Serial.println("VOICE COMMAND Matched !!!");
@@ -246,10 +252,12 @@ void ACPostProcess(std::vector<AudioClassificationResult> results)
         printf("MAX class %d, prob: %d, class_name: %s\r\n", max_id, max_prob, audioNames[max_id].audioName);
         
         if (max_id==0 && max_prob>80 && !recordingstate) {
+          audioNN.end();
+          Serial.println("audioNN.end......");        
           digitalWrite(LED_BUILTIN, HIGH);
           mp4.begin();
           Serial.println("Recording Audio...............");
-          audioNN.end();
+
         }    
     }
     digitalWrite(LED_G, LOW);
