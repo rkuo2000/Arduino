@@ -53,7 +53,8 @@ def home():
     return Response("Hello World")
 
 @app.post("/asr")
-async def post_data(data: Base64audio):
+async def post_asr(data: Base64audio):
+    print("/asr")
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.base64_string)
@@ -69,7 +70,8 @@ async def post_data(data: Base64audio):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/audio")
-async def post_data(data: Base64audio):
+async def post_audio(data: Base64audio):
+    print("/audio")
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.base64_string)
@@ -101,7 +103,8 @@ async def post_data(data: Base64audio):
         raise HTTPException(status_code=500, detail=str(e))
         
 @app.post("/imgau")
-async def post_data(data: Base64AudioImage):
+async def post_imgau(data: Base64AudioImage):
+    print("/imgau")
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.audio_base64_string)
@@ -138,7 +141,8 @@ async def post_data(data: Base64AudioImage):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/imgtxt")
-async def post_data(data: Base64TextImage):
+async def post_imgtxt(data: Base64TextImage):
+    print("/imgtxt")
     try:
         text = data.text_base64_string;
         print(text);

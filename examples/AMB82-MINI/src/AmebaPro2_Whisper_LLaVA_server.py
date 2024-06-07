@@ -31,6 +31,7 @@ processor = AutoProcessor.from_pretrained(model_name)
 import nest_asyncio
 nest_asyncio.apply()
 
+
 class Base64audio(BaseModel):
     base64_string: str
 
@@ -49,7 +50,7 @@ def home():
     return Response("Hello World")
 
 @app.post("/asr")
-async def post_data(data: Base64audio):
+async def post_asr(data: Base64audio):
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.base64_string)
@@ -65,7 +66,7 @@ async def post_data(data: Base64audio):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/audio")
-async def post_data(data: Base64audio):
+async def post_audio(data: Base64audio):
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.base64_string)
@@ -79,8 +80,7 @@ async def post_data(data: Base64audio):
 
         # LLaVA (VLM)
         text = result["text"]
-        prompt = "USER: \n"+prompt+"\nASSISTANT:"
-        print(text)
+        prompt = "USER: \n"+text+"\nASSISTANT:"
         inputs = processor(text=prompt, return_tensors="pt").to("cuda")
         output = VLM.generate(**inputs, max_new_tokens=200)
         generated_text = processor.batch_decode(output, skip_special_tokens=True)[0]
@@ -92,7 +92,7 @@ async def post_data(data: Base64audio):
         raise HTTPException(status_code=500, detail=str(e))
         
 @app.post("/imgau")
-async def post_data(data: Base64Data):
+async def post_imgau(data: Base64Data):
     try:
         # Save the decoded audio data to a MP4 file
         decoded_data = base64.b64decode(data.audio_base64_string)
@@ -124,7 +124,7 @@ async def post_data(data: Base64Data):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/imgtxt")
-async def post_data(data: Base64TextImage):
+async def post_imgtxt(data: Base64TextImage):
     try:
         text = data.text_base64_string;
         print(text);
