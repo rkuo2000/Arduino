@@ -49,6 +49,7 @@ from transformers import AutoModelForCausalLM , AutoTokenizer
 #model_name = "ckip-joint/bloom-3b-zh" 
 #model_name = "Qwen/Qwen1.5-7B-Chat" # 通义千问
 #model_name = "01-ai/Yi-6B-Chat" # 零一万物
+#model_name = "openbmb/MiniCPM-2B-128k" # 面壁智能 
 #model_name = "yentinglin/Taiwan-LLM-7B-v2.0.1-chat" # 台大
 #model_name = "MediaTek-Research/Breeze-7B-Instruct-v1_0" # 達哥
 #model_name = "MediaTek-Research/Breeze-7B-32k-Instruct-v1_0" # 達哥
