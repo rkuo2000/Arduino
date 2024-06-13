@@ -274,13 +274,13 @@ void loop()
     }
 
     // check command, if it matched, then capture image to ask VLM
-    if (strcmp(command, COMMAND1)>0) {
+    if (strcmp(command, COMMAND1)==0) {
         Serial.println("VOICE COMMAND Matched !!!");
         ask_VLM();
         strcpy(command, null);
     }
     // check command, if it matched, then capture image to ask VLM
-    if (strcmp(command, COMMAND2)>0) {
+    if (strcmp(command, COMMAND2)==0) {
         Serial.println("Stop Robot !!!");
         stop();
         strcpy(command, null);
