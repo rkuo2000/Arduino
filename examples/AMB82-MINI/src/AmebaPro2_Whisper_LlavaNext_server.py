@@ -85,7 +85,7 @@ async def post_audio(data: Base64audio):
         generated_text = processor.decode(output[0], skip_special_tokens=True)
         result = generated_text.split("ASSISTANT:")[-1]
         print(result)
-        header2="LLaVA:"
+        header2="VLM:"
         return Response(header1+text+"\n"+header2+result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -118,7 +118,7 @@ async def post_imgau(data: Base64Data):
         generated_text = processor.decode(output[0], skip_special_tokens=True)
         result = generated_text.split("ASSISTANT:")[-1]
         print(result)
-        header2="LLaVA:"
+        header2="VLM:"
         return Response(header1+text+"\n"+header2+result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -145,7 +145,7 @@ async def post_imgtxt(data: Base64TextImage):
         result = generated_text.split("ASSISTANT:")[-1]
         print(result)
         header1="User: "
-        header2="LLaVA:"
+        header2="VLM:"
         return Response(header1+text+"\n"+header2+result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
