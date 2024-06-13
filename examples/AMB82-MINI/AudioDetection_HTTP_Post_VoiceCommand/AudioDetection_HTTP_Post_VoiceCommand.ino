@@ -204,7 +204,7 @@ void loop()
         Serial.println(command);
         textbuffer[0]=(char)0; // clear textbuffer
     }
-    if (strcmp(command,COMMAND1)>0) {
+    if (strcmp(command,COMMAND1)==0) {
       Serial.println("VOICE COMMAND Matched !!!");
       blink(1);
       command[0]=(char)0;
